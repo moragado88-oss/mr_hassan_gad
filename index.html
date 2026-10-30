@@ -3,105 +3,612 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HG ACADEMY | مستر حسن جاد - منصة انجليزي متحركة</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<title>HASSAN GAD | English Academy</title>
 <style>
-body{font-family:'Cairo',sans-serif;background:#05070a;overflow-x:hidden}
-.gold{background:linear-gradient(270deg,#D4AF37,#F9E79F,#D4AF37);background-size:200% 200%;animation:goldMove 3s ease infinite}
-@keyframes goldMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.float{animation:float 4s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.pulse-gold{animation:pulseGold 2s infinite}
-@keyframes pulseGold{0%{box-shadow:0 0 0 0 rgba(212,175,55,0.7)}70%{box-shadow:0 0 0 12px rgba(212,175,55,0)}100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
-.shimmer{position:relative;overflow:hidden}
-.shimmer::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transform:translateX(-100%);animation:shimmer 2.5s infinite}
-@keyframes shimmer{100%{transform:translateX(100%)}}
-.typing{border-right:3px solid #D4AF37;animation:blink 1s infinite}
-@keyframes blink{50%{border-color:transparent}}
-.card{border:1px solid rgba(212,175,55,0.22);background:rgba(16,19,24,0.9);transition:all 0.4s;backdrop-filter:blur(10px)}
-.card:hover{transform:translateY(-6px) scale(1.02);border-color:#D4AF37;box-shadow:0 12px 30px rgba(212,175,55,0.25)}
-.count{animation:countUp 2s ease-out}
-.slide{animation:slideIn 0.8s ease-out}
-@keyframes slideIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.bounce-in{animation:bounceIn 1s ease-out}
-@keyframes bounceIn{0%{transform:scale(0.3);opacity:0}50%{transform:scale(1.05)}70%{transform:scale(0.9)}100%{transform:scale(1);opacity:1}}
+:root{
+--navy:#101b35;
+--gold:#e7b85b;
+--bg:#f3f5fa;
+--green:#16865d;
+--red:#d84b57;
+}
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Tahoma,Arial;
+background:var(--bg);
+color:#17233d;
+}
+header{
+background:linear-gradient(120deg,#101b35,#20385e);
+color:white;
+padding:25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:15px;
+}
+.logo{color:var(--gold);font-size:25px;font-weight:bold}
+header h1{margin:0;font-size:21px}
+header p{color:#c7d2e5;font-size:12px}
+.layout{
+display:grid;
+grid-template-columns:220px 1fr;
+gap:20px;
+max-width:1400px;
+margin:25px auto;
+padding:0 15px;
+}
+aside{
+background:var(--navy);
+padding:15px;
+border-radius:16px;
+height:max-content;
+}
+.navbtn{
+display:block;
+width:100%;
+padding:14px;
+border:0;
+border-radius:9px;
+background:none;
+color:white;
+text-align:right;
+font-size:14px;
+cursor:pointer;
+}
+.navbtn.active,.navbtn:hover{
+background:#ffffff20;
+color:var(--gold);
+}
+.page{display:none}
+.page.active{display:block}
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin:20px 0;
+}
+.stat,.panel{
+background:white;
+padding:18px;
+border-radius:14px;
+margin-bottom:15px;
+box-shadow:0 4px 15px #00000008;
+}
+.stat strong{display:block;font-size:27px;margin-top:10px}
+button{
+cursor:pointer;
+font-family:inherit;
+}
+.btn{
+border:0;
+border-radius:9px;
+padding:11px 15px;
+background:var(--navy);
+color:white;
+margin:3px;
+}
+.gold{background:var(--gold);color:#241b0d}
+.green{background:#e8f7f0;color:var(--green)}
+.red{background:#fff0f1;color:var(--red)}
+input,select{
+width:100%;
+padding:11px;
+border:1px solid #ddd;
+border-radius:9px;
+font-family:inherit;
+margin-top:5px;
+}
+label{font-size:12px;color:#71809b}
+.formgrid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+.field{margin-bottom:12px}
+.tablewrap{overflow:auto}
+table{
+width:100%;
+border-collapse:collapse;
+min-width:650px;
+}
+th,td{
+padding:12px;
+text-align:right;
+border-bottom:1px solid #eee;
+font-size:13px;
+}
+th{color:#71809b}
+.tag{
+padding:5px 9px;
+border-radius:20px;
+background:#eee;
+font-size:11px;
+}
+.yes{background:#e8f7f0;color:var(--green)}
+.no{background:#fff0f1;color:var(--red)}
+.coursegrid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+.course{
+background:white;
+border-radius:14px;
+padding:20px;
+}
+.course h3{color:#172747}
+.course p{font-size:13px;line-height:1.8;color:#71809b}
+.modalback{
+display:none;
+position:fixed;
+inset:0;
+background:#0009;
+z-index:10;
+padding:15px;
+overflow:auto;
+}
+.modalback.show{display:grid;place-items:center}
+.modal{
+background:white;
+padding:22px;
+border-radius:15px;
+width:min(700px,100%);
+}
+footer{text-align:center;padding:20px;color:#71809b}
+@media(max-width:800px){
+.layout{grid-template-columns:1fr}
+aside{display:grid;grid-template-columns:repeat(2,1fr)}
+.navbtn{text-align:center;font-size:12px}
+.stats{grid-template-columns:repeat(2,1fr)}
+.formgrid,.coursegrid{grid-template-columns:1fr}
+}
 </style>
 </head>
-<body class="text-white">
+<body>
 
-<header class="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-yellow-600/20 px-4 py-3 flex justify-between items-center">
-<div class="flex gap-3 items-center slide"><div class="w-10 h-10 gold rounded-lg flex items-center justify-center font-black text-black pulse-gold">HG</div><div><h1 class="font-black text-[#F7D774] text-sm">HG ACADEMY</h1><p class="text-[9px] text-gray-400">Mr.Hassan Gad • <span id="live">Online</span> 🟢</p></div></div>
-<div class="flex gap-2 items-center"><img src="mr_hassan.jpg" class="w-9 h-9 rounded-full border-2 border-yellow-500 object-cover object-top float"><a href="https://wa.me/201067820554" class="bg-[#25D366] px-3 py-1.5 rounded-full font-bold text-xs pulse-gold">01067820554</a></div>
+<header>
+<div>
+<div class="logo">HG | HASSAN GAD</div>
+<h1>English Academy</h1>
+<p>منصة مستر حسن جاد التعليمية</p>
+</div>
+<a id="topWhatsapp" class="btn gold" href="#" target="_blank">واتساب المستر</a>
 </header>
 
-<section class="max-w-7xl mx-auto p-4 grid md:grid-cols-2 gap-6">
-<div class="pt-2 slide">
-<div class="inline-flex gap-2 items-center bg-yellow-500/10 border border-yellow-500/20 rounded-full px-3 py-1 text-xs text-yellow-300 shimmer">✨ منصة متحركة • <span id="clock"></span> • 01067820554</div>
-<h2 class="text-4xl md:text-5xl font-black mt-4 leading-[1.1] bounce-in">منصة<br><span style="color:#D4AF37">مستر حسن جاد</span><br>للغة الإنجليزية <span class="typing"></span></h2>
-<p class="text-gray-400 mt-3 text-[15px] slide" style="animation-delay:0.2s">جميع المراحل • <span id="studentsLive" class="text-yellow-300 font-black">0</span> طالب اونلاين الآن • غياب لحظي</p>
-<div class="grid grid-cols-3 gap-2 mt-5">
-<div class="card rounded-xl p-3 text-center slide" style="animation-delay:0.3s"><p class="text-xl font-black text-yellow-300 count" data-target="500">0</p><p class="text-[11px] text-gray-400">طالب</p></div>
-<div class="card rounded-xl p-3 text-center slide" style="animation-delay:0.4s"><p class="text-xl font-black text-yellow-300">96%</p><p class="text-[11px] text-gray-400">حضور</p></div>
-<div class="card rounded-xl p-3 text-center slide" style="animation-delay:0.5s"><p class="text-xl font-black text-yellow-300 count" data-target="3">0</p><p class="text-[11px] text-gray-400">مراحل</p></div>
-</div>
-<div class="grid grid-cols-2 gap-2 mt-4 slide" style="animation-delay:0.6s">
-<a href="https://wa.me/201067820554?text=عايز احجز" class="gold text-black text-center py-3 rounded-xl font-black shimmer">🚀 احجز واتساب</a>
-<a href="#attendance" class="border border-yellow-500/40 text-yellow-300 text-center py-3 rounded-xl font-bold">📋 كشف الغياب</a>
-</div>
-</div>
+<div class="layout">
 
-<div class="relative slide" style="animation-delay:0.4s">
-<div class="card rounded-[28px] p-2 float">
-<img src="mr_hassan.jpg" class="w-full h-[420px] object-cover object-top rounded-[20px]">
-<div class="absolute -top-3 -right-3 bg-green-500 text-black px-3 py-1 rounded-full text-xs font-black animate-bounce">🔴 LIVE NOW</div>
-<div class="absolute bottom-6 left-6 right-6 bg-black/80 backdrop-blur border border-yellow-500/30 rounded-2xl p-3 flex justify-between items-center">
-<div><p class="font-black text-sm">Mr. Hassan Gad <span class="inline-block w-2 h-2 bg-green-500 rounded-full animate-ping"></span></p><p class="text-[11px] text-yellow-300">English • 01067820554 • متاح الآن</p></div><div class="bg-green-500 w-8 h-8 rounded-full flex items-center justify-center text-black font-bold pulse-gold">✓</div>
+<aside>
+<button class="navbtn active" onclick="showPage('dashboard',this)">🏠 الرئيسية</button>
+<button class="navbtn" onclick="showPage('students',this)">👨‍🎓 الطلاب</button>
+<button class="navbtn" onclick="showPage('attendance',this)">📋 الحضور والغياب</button>
+<button class="navbtn" onclick="showPage('grades',this)">📝 درجات الشيت</button>
+<button class="navbtn" onclick="showPage('payments',this)">💳 المدفوعات</button>
+<button class="navbtn" onclick="showPage('courses',this)">🎓 الكورسات</button>
+<button class="navbtn" onclick="showPage('lessons',this)">💻 الدروس الأونلاين</button>
+<button class="navbtn" onclick="showPage('settings',this)">⚙️ الإعدادات</button>
+</aside>
+
+<main>
+
+<section class="page active" id="dashboard">
+<h2>أهلاً بيك يا مستر حسن 👋</h2>
+<p>لوحة التحكم الرئيسية للأكاديمية</p>
+<div class="stats">
+<div class="stat">إجمالي الطلاب<strong id="total">0</strong></div>
+<div class="stat">حضور اليوم<strong id="present">0</strong></div>
+<div class="stat">غياب اليوم<strong id="absent">0</strong></div>
+<div class="stat">مدفوعات الشهر<strong id="paid">0</strong></div>
 </div>
+<div class="panel">
+<h3>مجموعات الأوفلاين</h3>
+<p>📍 قرية العاشر: خامسة ابتدائي، أولى إعدادي، ثانية إعدادي.</p>
+<p>📍 قرية الرضوان: من أولى ابتدائي حتى ثالثة إعدادي.</p>
+</div>
+<div class="panel">
+<h3>إدارة الأكاديمية</h3>
+<button class="btn gold" onclick="openStudent()">+ إضافة طالب جديد</button>
+<button class="btn" onclick="showPage('attendance')">تسجيل الحضور</button>
+</div>
+</section>
+
+<section class="page" id="students">
+<h2>إدارة الطلاب</h2>
+<button class="btn gold" onclick="openStudent()">+ إضافة طالب</button>
+<div class="panel">
+<input id="search" placeholder="ابحث عن طالب..." oninput="renderStudents()">
+<div class="tablewrap">
+<table>
+<thead>
+<tr><th>الاسم</th><th>المرحلة</th><th>المجموعة</th><th>واتساب الأب</th><th>الإجراءات</th></tr>
+</thead>
+<tbody id="studentsBody"></tbody>
+</table>
 </div>
 </div>
 </section>
 
-<section class="max-w-7xl mx-auto p-4">
-<h3 class="font-black text-xl slide">📚 المراحل - اختار مرحلتك (بتتحرك)</h3>
-<div class="grid md:grid-cols-3 gap-3 mt-4">
-<div class="card rounded-2xl p-4 slide" style="animation-delay:0.2s"><div class="flex justify-between"><h4 class="font-black">ابتدائي 🧒</h4><span class="bg-green-600 text-[10px] px-2 py-1 rounded-full animate-pulse">متاح</span></div><div class="mt-3 h-1 bg-white/10 rounded-full"><div class="h-1 gold rounded-full" style="width:0%;animation:fill 2s forwards 0.5s"></div></div><p class="text-xs text-gray-400 mt-2">4-5-6 ابتدائي • تأسيس</p><a href="https://wa.me/201067820554?text=حجز ابتدائي" class="block mt-3 border border-yellow-500 text-yellow-300 text-center py-2 rounded-xl font-bold text-sm hover:bg-yellow-500 hover:text-black transition">حجز ابتدائي</a></div>
-<div class="card rounded-2xl p-4 border-yellow-400/50 slide" style="animation-delay:0.4s"><div class="flex justify-between"><h4 class="font-black text-yellow-300">اعدادي 🔥</h4><span class="bg-yellow-400 text-black text-[10px] px-2 py-1 rounded-full animate-bounce">الأكثر طلباً</span></div><div class="mt-3 h-1 bg-white/10 rounded-full"><div class="h-1 gold rounded-full" style="width:0%;animation:fill 2s forwards 0.8s"></div></div><p class="text-xs text-gray-400 mt-2">1-2-3 اعدادي • 32 حصة • غياب يومي</p><a href="https://wa.me/201067820554?text=حجز اعدادي" class="block mt-3 gold text-black text-center py-2 rounded-xl font-black text-sm shimmer">حجز اعدادي - 01067820554</a></div>
-<div class="card rounded-2xl p-4 slide" style="animation-delay:0.6s"><div class="flex justify-between"><h4 class="font-black">ثانوي 🎓</h4><span class="bg-green-600 text-[10px] px-2 py-1 rounded-full animate-pulse">متاح</span></div><div class="mt-3 h-1 bg-white/10 rounded-full"><div class="h-1 gold rounded-full" style="width:0%;animation:fill 2s forwards 1s"></div></div><p class="text-xs text-gray-400 mt-2">1-2-3 ثانوي • ليالي امتحان</p><a href="https://wa.me/201067820554?text=حجز ثانوي" class="block mt-3 border border-yellow-500 text-yellow-300 text-center py-2 rounded-xl font-bold text-sm">حجز ثانوي</a></div>
+<section class="page" id="attendance">
+<h2>الحضور والغياب</h2>
+<div class="panel">
+<div class="field">
+<label>التاريخ</label>
+<input type="date" id="attDate">
 </div>
-<style>@keyframes fill{to{width:85%}}</style>
-</section>
-
-<section id="attendance" class="max-w-7xl mx-auto p-4 grid lg:grid-cols-2 gap-3">
-<div class="card rounded-2xl p-4 slide">
-<h3 class="font-black text-yellow-300">📋 نظام الغياب المتحرك - LIVE</h3>
-<div class="flex gap-2 mt-3"><input id="code" placeholder="اكتب كودك HG-2041" class="flex-1 bg-black border border-yellow-500/30 rounded-xl px-3 py-3 text-center font-bold text-sm focus:border-yellow-400 focus:outline-none transition"><button onclick="checkAttendance()" class="gold text-black px-5 rounded-xl font-black text-sm pulse-gold">بحث 🔍</button></div>
-<div id="res" class="hidden mt-3 bg-green-900/20 border border-green-500/30 rounded-xl p-3 bounce-in"><p class="font-bold text-sm">أحمد يوسف - HG-2041 - 2 ثانوي ✅</p><div class="w-full bg-white/10 h-2 rounded-full mt-2"><div class="h-2 bg-green-500 rounded-full" style="width:0%;animation:fill2 1.5s forwards"></div></div><p class="text-xs text-gray-400 mt-1">حضور: 22/24 - 91%</p></div>
-<div id="list" class="mt-4 space-y-2"></div>
+<div class="tablewrap">
+<table>
+<thead><tr><th>الطالب</th><th>المجموعة</th><th>الحالة</th><th>التسجيل</th></tr></thead>
+<tbody id="attendanceBody"></tbody>
+</table>
 </div>
-<div class="card rounded-2xl p-4 slide">
-<h3 class="font-black">تواصل فوري متحرك 🟢</h3>
-<div class="mt-3 bg-[#25D366]/10 border border-[#25D366]/30 rounded-xl p-3 flex gap-3 items-center"><img src="mr_hassan.jpg" class="w-12 h-12 rounded-full border-2 border-[#25D366] object-cover object-top pulse-gold"><div><p class="font-black text-sm">Mr. Hassan Gad <span class="text-green-400 text-xs">● Online</span></p><p class="text-xs text-[#25D366]">01067820554 - يرد فوراً</p></div></div>
-<div class="grid grid-cols-2 gap-2 mt-3"><a href="tel:01067820554" class="bg-white text-black text-center py-3 rounded-xl font-black text-sm animate-pulse">📞 اتصال</a><a href="https://wa.me/201067820554" class="bg-[#25D366] text-white text-center py-3 rounded-xl font-black text-sm pulse-gold">💬 واتساب</a></div>
-<div class="mt-3 text-xs text-gray-400"><p id="typingText" class="text-yellow-300"></p></div>
 </div>
 </section>
 
-<footer class="border-t border-yellow-500/10 mt-6 p-4 text-center text-[10px] text-gray-600"><p>© 2025 HG ACADEMY • Mr. Hassan Gad • 01067820554 • <span id="footerClock"></span></p></footer>
+<section class="page" id="grades">
+<h2>درجات الشيت</h2>
+<div class="panel">
+<div class="formgrid">
+<div class="field">
+<label>الطالب</label>
+<select id="gradeStudent"></select>
+</div>
+<div class="field">
+<label>الدرجة</label>
+<input id="gradeScore" type="number" min="0">
+</div>
+<div class="field">
+<label>الدرجة النهائية</label>
+<input id="gradeMax" type="number" value="20" min="1">
+</div>
+</div>
+<button class="btn gold" onclick="saveGrade()">حفظ الدرجة</button>
+</div>
+<div class="panel tablewrap">
+<table>
+<thead><tr><th>الطالب</th><th>الدرجة</th><th>النسبة</th><th>التاريخ</th></tr></thead>
+<tbody id="gradesBody"></tbody>
+</table>
+</div>
+</section>
+
+<section class="page" id="payments">
+<h2>المدفوعات الشهرية</h2>
+<div class="panel">
+<label>الشهر</label>
+<input type="month" id="payMonth">
+<div class="tablewrap">
+<table>
+<thead><tr><th>الطالب</th><th>المجموعة</th><th>الحالة</th><th>تغيير</th></tr></thead>
+<tbody id="paymentsBody"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="page" id="courses">
+<h2>الكورسات الأونلاين</h2>
+<div class="coursegrid">
+<div class="course">
+<h3>📘 ابتدائي</h3>
+<p>تأسيس وشرح ومراجعة اللغة الإنجليزية لجميع صفوف المرحلة الابتدائية.</p>
+<button class="btn gold" onclick="contact('كورسات ابتدائي')">استفسر الآن</button>
+</div>
+<div class="course">
+<h3>📗 إعدادي</h3>
+<p>شرح المناهج والقواعد وحل التدريبات والامتحانات.</p>
+<button class="btn gold" onclick="contact('كورسات إعدادي')">استفسر الآن</button>
+</div>
+<div class="course">
+<h3>📕 ثانوي</h3>
+<p>شرح ومراجعة وتدريب على أسئلة اللغة الإنجليزية.</p>
+<button class="btn gold" onclick="contact('كورسات ثانوي')">استفسر الآن</button>
+</div>
+</div>
+</section>
+
+<section class="page" id="lessons">
+<h2>الدروس الأونلاين</h2>
+<div class="panel">
+<h3>احجز درسك مع مستر حسن جاد</h3>
+<p>دروس أونلاين لجميع المراحل الابتدائية والإعدادية والثانوية.</p>
+<button class="btn gold" onclick="contact('حجز درس أونلاين')">احجز عبر واتساب</button>
+</div>
+</section>
+
+<section class="page" id="settings">
+<h2>إعدادات المنصة</h2>
+<div class="panel">
+<label>رقم واتساب المستر مع كود مصر</label>
+<input id="teacherPhone" value="201067820554">
+<button class="btn gold" onclick="saveSettings()">حفظ الرقم</button>
+</div>
+<div class="panel">
+<button class="btn" onclick="exportData()">تحميل نسخة احتياطية</button>
+<button class="btn red" onclick="clearData()">مسح جميع البيانات</button>
+</div>
+</section>
+
+</main>
+</div>
+
+<footer>© HASSAN GAD ENGLISH ACADEMY</footer>
+
+<div class="modalback" id="studentModal">
+<div class="modal">
+<h3>إضافة طالب جديد</h3>
+<div class="formgrid">
+<div class="field"><label>اسم الطالب</label><input id="stName"></div>
+<div class="field">
+<label>المرحلة</label>
+<select id="stStage">
+<option>أولى ابتدائي</option>
+<option>ثانية ابتدائي</option>
+<option>ثالثة ابتدائي</option>
+<option>رابعة ابتدائي</option>
+<option>خامسة ابتدائي</option>
+<option>سادسة ابتدائي</option>
+<option>أولى إعدادي</option>
+<option>ثانية إعدادي</option>
+<option>ثالثة إعدادي</option>
+<option>أولى ثانوي</option>
+<option>ثانية ثانوي</option>
+<option>ثالثة ثانوي</option>
+</select>
+</div>
+<div class="field">
+<label>نوع الدراسة</label>
+<select id="stType"><option>أوفلاين</option><option>أونلاين</option></select>
+</div>
+<div class="field">
+<label>المجموعة</label>
+<select id="stGroup">
+<option>قرية العاشر</option>
+<option>قرية الرضوان</option>
+<option>أونلاين</option>
+</select>
+</div>
+<div class="field"><label>رقم واتساب الأب</label><input id="stParent" placeholder="2010XXXXXXXX"></div>
+<div class="field"><label>ملاحظات</label><input id="stNotes"></div>
+</div>
+<button class="btn gold" onclick="saveStudent()">حفظ الطالب</button>
+<button class="btn" onclick="closeStudent()">إغلاق</button>
+</div>
+</div>
 
 <script>
-// Clock
-setInterval(()=>{let d=new Date();document.getElementById('clock').textContent=d.toLocaleTimeString('ar-EG');document.getElementById('footerClock').textContent=d.toLocaleDateString('ar-EG')},1000);
-// Live students
-let c=142;setInterval(()=>{c+=Math.floor(Math.random()*3)-1;document.getElementById('studentsLive').textContent=c},2000);
-// Count up
-document.querySelectorAll('.count').forEach(el=>{let target=+el.dataset.target,cur=0;let inc=target/40;let t=setInterval(()=>{cur+=inc;if(cur>=target){cur=target;clearInterval(t);}el.textContent=Math.floor(cur)},50)});
-// Attendance live list
-let names=[['Ahmed Youssef - HG-2041','حاضر','green'],['Fatma Mohamed - HG-1987','حاضر','green'],['Omar Khaled - HG-2110','متأخر','yellow'],['Nour Ibrahim - HG-2033','غائب','red']];let list=document.getElementById('list');function render(){list.innerHTML='';names.forEach(([n,s,col],i)=>{setTimeout(()=>{let color=col==='green'?'bg-green-600':col==='yellow'?'bg-yellow-500 text-black':'bg-red-600';list.innerHTML+=`<div class="flex justify-between bg-white/5 p-3 rounded-xl text-sm slide"><span>${n}</span><span class="${color} text-[11px] px-3 py-1 rounded-full">${s}</span></div>`},i*200)})}render();setInterval(render,5000);
-function checkAttendance(){let v=document.getElementById('code').value;if(!v){alert('اكتب كود الطالب');return;}document.getElementById('res').classList.remove('hidden');}
-// Typing effect
-let txt="مستر حسن بيرد عليك فوراً على واتساب... 01067820554 - احجز مكانك الآن 🚀";let idx=0;setInterval(()=>{document.getElementById('typingText').textContent=txt.slice(0,idx);idx=(idx+1)%(txt.length+1)},80);
+const $=id=>document.getElementById(id);
+const get=(k,d)=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d));
+
+let students=get('hg_students',[]);
+let attendance=get('hg_attendance',{});
+let grades=get('hg_grades',[]);
+let payments=get('hg_payments',{});
+let settings=get('hg_settings',{phone:'201067820554'});
+
+const today=()=>new Date().toISOString().slice(0,10);
+const month=()=>today().slice(0,7);
+
+$('attDate').value=today();
+$('payMonth').value=month();
+
+function save(){
+localStorage.setItem('hg_students',JSON.stringify(students));
+localStorage.setItem('hg_attendance',JSON.stringify(attendance));
+localStorage.setItem('hg_grades',JSON.stringify(grades));
+localStorage.setItem('hg_payments',JSON.stringify(payments));
+}
+
+function esc(v){
+return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function showPage(id,button){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));
+$(id).classList.add('active');
+if(button)button.classList.add('active');
+refresh();
+}
+
+function refresh(){
+renderStudents();
+renderAttendance();
+renderGrades();
+renderPayments();
+renderDashboard();
+fillSelect();
+}
+
+function openStudent(){
+$('studentModal').classList.add('show');
+}
+
+function closeStudent(){
+$('studentModal').classList.remove('show');
+}
+
+function saveStudent(){
+let name=$('stName').value.trim();
+let parent=$('stParent').value.replace(/\D/g,'');
+if(!name||!parent){
+alert('اكتب اسم الطالب ورقم ولي الأمر');
+return;
+}
+students.push({
+id:Date.now().toString(),
+name,
+stage:$('stStage').value,
+type:$('stType').value,
+group:$('stGroup').value,
+parent,
+notes:$('stNotes').value
+});
+save();
+closeStudent();
+['stName','stParent','stNotes'].forEach(id=>$(id).value='');
+refresh();
+}
+
+function renderStudents(){
+let q=$('search')?.value?.toLowerCase()||'';
+let arr=students.filter(s=>s.name.toLowerCase().includes(q));
+$('studentsBody').innerHTML=arr.map(s=>`
+<tr>
+<td>${esc(s.name)}</td>
+<td>${esc(s.stage)}</td>
+<td>${esc(s.group)}</td>
+<td>${esc(s.parent)}</td>
+<td>
+<button class="btn green" onclick="parentWhatsApp('${s.id}')">واتساب الأب</button>
+<button class="btn red" onclick="deleteStudent('${s.id}')">حذف</button>
+</td>
+</tr>`).join('')||'<tr><td colspan="5">لا يوجد طلاب</td></tr>';
+}
+
+function deleteStudent(id){
+if(confirm('هل تريد حذف الطالب؟')){
+students=students.filter(s=>s.id!==id);
+save();
+refresh();
+}
+}
+
+function renderAttendance(){
+let date=$('attDate').value||today();
+$('attendanceBody').innerHTML=students.map(s=>{
+let status=attendance[date+'_'+s.id]||'لم يسجل';
+return `<tr>
+<td>${esc(s.name)}</td>
+<td>${esc(s.group)}</td>
+<td>${status}</td>
+<td>
+<button class="btn green" onclick="setAttendance('${s.id}','حاضر')">حاضر</button>
+<button class="btn red" onclick="setAttendance('${s.id}','غائب')">غائب</button>
+</td>
+</tr>`;
+}).join('')||'<tr><td colspan="4">لا يوجد طلاب</td></tr>';
+}
+
+function setAttendance(id,status){
+attendance[($('attDate').value||today())+'_'+id]=status;
+save();
+refresh();
+}
+
+function fillSelect(){
+$('gradeStudent').innerHTML=students.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('');
+}
+
+function saveGrade(){
+let id=$('gradeStudent').value;
+let score=Number($('gradeScore').value);
+let max=Number($('gradeMax').value);
+if(!id||$('gradeScore').value===''||max<=0||score<0||score>max){
+alert('راجع بيانات الدرجة');
+return;
+}
+grades.unshift({id,score,max,date:today()});
+save();
+$('gradeScore').value='';
+refresh();
+}
+
+function renderGrades(){
+$('gradesBody').innerHTML=grades.map(g=>{
+let s=students.find(x=>x.id===g.id);
+return `<tr><td>${esc(s?.name||'محذوف')}</td><td>${g.score}/${g.max}</td><td>${Math.round(g.score/g.max*100)}%</td><td>${g.date}</td></tr>`;
+}).join('')||'<tr><td colspan="4">لا توجد درجات</td></tr>';
+}
+
+function renderPayments(){
+let m=$('payMonth').value||month();
+$('paymentsBody').innerHTML=students.map(s=>{
+let paid=!!payments[m+'_'+s.id];
+return `<tr>
+<td>${esc(s.name)}</td>
+<td>${esc(s.group)}</td>
+<td>${paid?'مدفوع':'لم يدفع'}</td>
+<td><button class="btn ${paid?'red':'green'}" onclick="togglePayment('${s.id}')">${paid?'إلغاء الدفع':'تسجيل الدفع'}</button></td>
+</tr>`;
+}).join('')||'<tr><td colspan="4">لا يوجد طلاب</td></tr>';
+}
+
+function togglePayment(id){
+let key=($('payMonth').value||month())+'_'+id;
+payments[key]=!payments[key];
+save();
+refresh();
+}
+
+function renderDashboard(){
+let d=today();
+$('total').textContent=students.length;
+$('present').textContent=students.filter(s=>attendance[d+'_'+s.id]==='حاضر').length;
+$('absent').textContent=students.filter(s=>attendance[d+'_'+s.id]==='غائب').length;
+$('paid').textContent=students.filter(s=>payments[month()+'_'+s.id]).length;
+}
+
+function whatsapp(phone,msg){
+window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(msg),'_blank');
+}
+
+function parentWhatsApp(id){
+let s=students.find(x=>x.id===id);
+if(!s)return;
+let absences=Object.entries(attendance).filter(([k,v])=>k.endsWith('_'+id)&&v==='غائب');
+let last=grades.find(g=>g.id===id);
+let paid=!!payments[month()+'_'+id];
+let msg=`السلام عليكم ولي أمر الطالب ${s.name}
+تقرير المتابعة من مستر حسن جاد:
+المرحلة: ${s.stage}
+المجموعة: ${s.group}
+عدد مرات الغياب: ${absences.length}
+آخر درجة شيت: ${last?last.score+' من '+last.max:'لا توجد درجة مسجلة'}
+اشتراك الشهر: ${paid?'مدفوع':'غير مدفوع'}
+شكراً لحضراتكم.`;
+whatsapp(s.parent,msg);
+}
+
+function contact(course){
+whatsapp(settings.phone,'السلام عليكم يا مستر حسن، أريد الاستفسار عن '+course);
+}
+
+function saveSettings(){
+let p=$('teacherPhone').value.replace(/\D/g,'');
+if(p.length<10){alert('اكتب رقم صحيح');return;}
+settings.phone=p;
+localStorage.setItem('hg_settings',JSON.stringify(settings));
+updateWhatsapp();
+alert('تم حفظ الرقم');
+}
+
+function updateWhatsapp(){
+$('topWhatsapp').href='https://wa.me/'+settings.phone;
+}
+
+function exportData(){
+let data={students,attendance,grades,payments,settings};
+let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+let a=document.createElement('a');
+a.href=URL.createObjectURL(blob);
+a.download='hassan-gad-backup.json';
+a.click();
+}
+
+function clearData(){
+if(confirm('هل تريد حذف جميع البيانات؟')){
+students=[];attendance={};grades=[];payments={};
+save();refresh();
+}
+}
+
+$('attDate').addEventListener('change',renderAttendance);
+$('payMonth').addEventListener('change',renderPayments);
+$('teacherPhone').value=settings.phone;
+updateWhatsapp();
+refresh();
 </script>
-<style>@keyframes fill2{to{width:91%}}</style>
 </body>
 </html>
