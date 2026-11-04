@@ -2,175 +2,87 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MARO PANEL - منصة مارو الرسمية</title>
+<title>MARO - Luxury SMM Panel</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
 <style>
-body{background:#050505;color:#fff;font-family:system-ui;margin:0}
-.header{background:#111;padding:15px;text-align:center;border-bottom:2px solid gold;position:sticky;top:0;z-index:10}
-.logo{font-size:32px;font-weight:900;color:gold;letter-spacing:4px}
-.card{background:#151515;border:1px solid #333;padding:15px;border-radius:15px;margin:12px}
-.btn-gold{background:linear-gradient(45deg,gold,#b8941f);color:#000;padding:12px 20px;border:none;border-radius:25px;font-weight:bold;cursor:pointer;width:100%;margin-top:8px}
-.btn-whats{background:#25D366;color:#fff;padding:10px 20px;border-radius:25px;font-weight:bold;text-decoration:none;display:inline-block;margin-top:10px}
-input,textarea,select{width:100%;padding:12px;margin:6px 0;background:#222;color:#fff;border:1px solid #444;border-radius:10px;box-sizing:border-box}
-.tabs{display:flex;gap:5px;padding:10px;overflow-x:auto;background:#0a0a0a}
-.tab{padding:10px 15px;background:#222;border-radius:20px;cursor:pointer;white-space:nowrap;font-size:13px}
-.tab.active{background:gold;color:#000;font-weight:bold}
-table{width:100%;font-size:12px;border-collapse:collapse}
-th,td{border:1px solid #333;padding:6px}
-.admin-only{display:none}
+*{font-family:'Cairo',system-ui}
+body{margin:0;background:#000;color:#fff;overflow-x:hidden}
+.bg-anim{position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 20% 30%,#b8941f22 0%,transparent 50%),radial-gradient(circle at 80% 70%,#d4af3722 0%,transparent 50%),#000;animation:bgMove 10s infinite alternate}
+@keyframes bgMove{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(15deg)}}
+.header{background:rgba(20,20,20,0.8);backdrop-filter:blur(20px);border-bottom:1px solid #d4af37;padding:18px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 10px 40px #d4af3722}
+.logo{font-size:42px;font-weight:900;background:linear-gradient(45deg,gold,#fff,gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:6px;animation:shine 2s infinite}
+@keyframes shine{0%,100%{filter:brightness(1)}50%{filter:brightness(1.5)}}
+.card{background:linear-gradient(145deg,rgba(25,25,25,0.9),rgba(10,10,10,0.9));border:1px solid #d4af3733;border-radius:22px;padding:20px;margin:14px;backdrop-filter:blur(10px);box-shadow:0 10px 30px #000, inset 0 1px 0 #ffffff11;transform:translateY(0);transition:0.4s;animation:fadeUp 0.6s}
+.card:hover{transform:translateY(-4px);border-color:gold;box-shadow:0 20px 50px #d4af3733}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.btn-gold{background:linear-gradient(45deg,#d4af37,#f9e27a,#b8941f);color:#000;padding:14px;border:none;border-radius:30px;font-weight:900;cursor:pointer;width:100%;margin-top:10px;box-shadow:0 5px 20px #d4af3755;transition:0.3s}
+.btn-gold:hover{transform:scale(1.03);box-shadow:0 10px 30px #d4af3766}
+.tabs{display:flex;gap:8px;padding:12px;overflow-x:auto;background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);position:sticky;top:86px;z-index:9}
+.tab{padding:12px 18px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:30px;cursor:pointer;white-space:nowrap;transition:0.3s}
+.tab.active{background:linear-gradient(45deg,gold,#b8941f);color:#000;font-weight:900;box-shadow:0 5px 20px #d4af3755;transform:scale(1.05)}
+input,textarea,select{width:100%;padding:14px;margin:8px 0;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff;border-radius:14px;box-sizing:border-box;transition:0.3s}
+input:focus{border-color:gold;background:rgba(255,255,255,0.08);outline:none;box-shadow:0 0 20px #d4af3722}
+.service-item{padding:16px;border-bottom:1px solid #ffffff0d;display:flex;justify-content:space-between;align-items:center;animation:fadeUp 0.4s}
+.service-item b{color:gold}
+.badge{background:gold;color:#000;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:900}
+.glow-text{color:gold;text-shadow:0 0 20px gold}
 </style>
 </head>
 <body>
+<div class="bg-anim"></div>
 <div class="header">
 <div class="logo">MARO</div>
-<div style="font-size:12px;color:#aaa">SMM PANEL - فودافون كاش: 01030980823</div>
-<a class="btn-whats" href="https://wa.me/201030980823" target="_blank">💬 واتساب 01030980823</a>
+<div class="glow-text" style="font-size:13px;letter-spacing:2px">LUXURY SMM PANEL • 01030980823</div>
+<a href="https://wa.me/201030980823" style="display:inline-block;margin-top:12px;background:#25D366;color:#fff;padding:8px 18px;border-radius:30px;text-decoration:none;font-weight:900;box-shadow:0 5px 20px #25D36655">💬 واتساب فوري</a>
 </div>
 
 <div class="tabs">
-<div class="tab active" onclick="showTab('services')">🛒 الخدمات</div>
-<div class="tab" onclick="showTab('order')">📝 طلب</div>
-<div class="tab" onclick="showTab('balance')">💰 شحن رصيد</div>
-<div class="tab" onclick="showTab('tickets')">🎫 تذاكر</div>
-<div class="tab" onclick="showTab('my')">📦 طلباتي</div>
-<div class="tab" onclick="showTab('admin')">👑 ادمن MARO</div>
+<div class="tab active" onclick="showTab('services',this)">🛒 الخدمات الفخمة</div>
+<div class="tab" onclick="showTab('order',this)">⚡ طلب برق</div>
+<div class="tab" onclick="showTab('balance',this)">💎 شحن VIP</div>
+<div class="tab" onclick="showTab('admin',this)">👑 MARO ADMIN</div>
 </div>
 
 <div id="tab-services" class="card">
-<h3 style="color:gold">🔥 خدمات MARO</h3>
-<div id="services">جاري التحميل...</div>
+<h3 class="glow-text">🔥 خدمات MARO الـ VIP</h3>
+<div id="services"></div>
 </div>
 
 <div id="tab-order" class="card" style="display:none">
-<h3>عمل طلب جديد</h3>
-<input id="o_email" placeholder="ايميلك">
-<select id="o_service_select"></select>
-<input id="o_service" placeholder="او اكتب اسم الخدمة">
-<input id="o_link" placeholder="رابط الحساب / البوست">
-<input id="o_qty" type="number" placeholder="الكمية">
-<button class="btn-gold" onclick="placeOrder()">اطلب الان</button>
+<h3 class="glow-text">⚡ طلب جديد - تنفيذ فوري</h3>
+<input id="o_email" placeholder="📧 ايميلك">
+<select id="o_service_select" style="border:1px solid gold"></select>
+<input id="o_link" placeholder="🔗 رابط الحساب">
+<input id="o_qty" type="number" placeholder="🔢 الكمية">
+<button class="btn-gold" onclick="placeOrder()">🚀 اطلب الان - MARO</button>
 </div>
 
 <div id="tab-balance" class="card" style="display:none">
-<h3>💳 شحن رصيد - فودافون كاش</h3>
-<div style="background:#222;padding:12px;border-radius:10px;border-right:3px solid gold">
-حول على رقم MARO:<br><b style="color:gold;font-size:20px">01030980823</b><br>
-بعد التحويل املى البيانات
+<h3 class="glow-text">💎 شحن رصيد VIP - فودافون كاش</h3>
+<div style="background:linear-gradient(145deg,#1a1a1a,#0a0a0a);border:1px solid gold;border-radius:16px;padding:16px;text-align:center">
+<div style="color:#888;font-size:12px">حول على رقم MARO الرسمي</div>
+<div style="font-size:28px;font-weight:900;color:gold;text-shadow:0 0 20px gold">01030980823</div>
+<div style="font-size:11px;color:#666">التأكيد في خلال 10 دقائق</div>
 </div>
-<input id="p_email" placeholder="ايميلك">
-<input id="p_amount" type="number" placeholder="المبلغ اللي حولته">
-<input id="p_number" placeholder="رقمك اللي حولت منه">
-<input id="p_trx" placeholder="رقم العملية Transaction ID">
-<button class="btn-gold" onclick="submitPayment()">ارسال طلب الشحن</button>
-</div>
-
-<div id="tab-tickets" class="card" style="display:none">
-<h3>🎫 تذكرة / شكوى</h3>
-<input id="t_email" placeholder="ايميلك">
-<input id="t_sub" placeholder="الموضوع">
-<textarea id="t_msg" placeholder="مشكلتك..."></textarea>
-<button class="btn-gold" onclick="openTicket()">ارسال</button>
-</div>
-
-<div id="tab-my" class="card" style="display:none">
-<h3>طلباتي</h3>
-<input id="my_email" placeholder="ايميلك">
-<button class="btn-gold" onclick="myOrders()">عرض طلباتي</button>
-<div id="myOrdersList"></div>
+<input id="p_email" placeholder="ايميلك"><input id="p_amount" type="number" placeholder="المبلغ"><input id="p_number" placeholder="رقمك"><input id="p_trx" placeholder="Transaction ID"><button class="btn-gold" onclick="submitPayment()">💳 ارسال طلب الشحن</button>
 </div>
 
 <div id="tab-admin" class="card" style="display:none">
-<div id="adminLogin">
-<h3 style="color:gold">👑 دخول ادمن MARO</h3>
-<input id="admin_pass" type="password" placeholder="كلمة السر">
-<button class="btn-gold" onclick="adminLogin()">دخول</button>
-<p style="font-size:11px;color:#666">الافتراضي: MARO@2026</p>
-</div>
-<div id="adminPanel" style="display:none">
-<h2 style="color:gold">لوحة تحكم MARO</h2>
-
-<div style="background:#222;padding:12px;border-radius:10px;margin:10px 0">
-<h4>➕ اضافة خدمة</h4>
-<input id="s_name" placeholder="اسم الخدمة">
-<textarea id="s_desc" placeholder="الوصف - وصول / ضمان / .."></textarea>
-<input id="s_price" type="number" placeholder="السعر لكل 1000">
-<input id="s_min" type="number" placeholder="اقل كمية 100">
-<input id="s_max" type="number" placeholder="اكبر كمية 10000">
-<input id="s_cat" placeholder="القسم Instagram/TikTok">
-<button class="btn-gold" onclick="addService()">اضافة</button>
-</div>
-
-<button class="btn-gold" onclick="loadAdmin()">🔄 تحديث كل البيانات</button>
-<div id="adminServices"></div>
-<div id="adminPayments"></div>
-<div id="adminOrders"></div>
-<div id="adminTickets"></div>
-</div>
+<div id="adminLoginBox"><h3 class="glow-text">👑 دخول MARO الخاص</h3><input id="admin_pass" type="password" placeholder="كلمة السر السرية"><button class="btn-gold" onclick="adminLoginFix()">🔓 دخول</button></div>
+<div id="adminPanel" style="display:none"><h2 class="glow-text">لوحة تحكم MARO LUXURY</h2><input id="s_name" placeholder="اسم الخدمة الفخمة"><textarea id="s_desc" placeholder="الوصف الفخم - وصول + ضمان"><\/textarea><input id="s_price" type="number" placeholder="السعر لكل 1000"><input id="s_min" type="number" placeholder="اقل كمية"><input id="s_max" type="number" placeholder="اكبر كمية"><input id="s_cat" placeholder="القسم"><button class="btn-gold" onclick="addService()">➕ اضافة خدمة VIP</button><button class="btn-gold" onclick="loadAdmin()" style="background:#222;color:gold;border:1px solid gold">🔄 تحديث</button><div id="adminServices"></div><div id="adminPayments"></div><div id="adminOrders"></div></div>
 </div>
 
 <script>
-const SUPABASE_URL='https://okikwjwccskgqququowa.supabase.co';
-const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9raWt3andjY3NrcWdxdXF1b3dhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM3MTcyMjMsImV4cCI6MjEwOTI5MzIyM30.6PJlnTrfQm4c74G7FXKuGLJsWaT_bdlOVQtjSBby4bw';
-const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-
-function showTab(n){
-document.querySelectorAll('[id^=tab-]').forEach(e=>e.style.display='none');
-document.getElementById('tab-'+n).style.display='block';
-document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-event.target.classList.add('active');
-if(n==='services') loadServices();
-}
-
-async function loadServices(){
-let {data}=await sb.from('maro_services').select('*').order('id',{ascending:false});
-document.getElementById('services').innerHTML=data.map(s=>`<div style="border-bottom:1px solid #333;padding:12px"><b style="color:gold">${s.name}</b><br><small>${s.description||''}</small><br>💰 ${s.price_per_1000}ج /1000 | 📦 ${s.min_order}-${s.max_order}<br><span style="color:#888">${s.category}</span></div>`).join('')||'مفيش خدمات لسه';
-document.getElementById('o_service_select').innerHTML=data.map(s=>`<option value="${s.name}">${s.name} - ${s.price_per_1000}ج</option>`).join('');
-}
-loadServices();
-
-async function placeOrder(){
-let {error}=await sb.from('maro_orders').insert({user_email:o_email.value,service_name:o_service.value||o_service_select.value,link:o_link.value,quantity:parseInt(o_qty.value)});
-if(error) alert(error.message); else alert('تم استلام طلبك ✅');
-}
-async function submitPayment(){
-let {error}=await sb.from('maro_payments').insert({user_email:p_email.value,amount:parseFloat(p_amount.value),sender_number:p_number.value,trx_id:p_trx.value});
-if(error) alert(error.message); else alert('تم ارسال طلب الشحن - هنراجع فودافون كاش 01030980823');
-}
-async function openTicket(){
-let {error}=await sb.from('maro_tickets').insert({user_email:t_email.value,subject:t_sub.value,message:t_msg.value});
-if(error) alert(error.message); else alert('تم ارسال التذكرة');
-}
-async function myOrders(){
-let {data}=await sb.from('maro_orders').select('*').eq('user_email',my_email.value).order('id',{ascending:false});
-myOrdersList.innerHTML=data.map(o=>`<div style="border-bottom:1px solid #333;padding:8px">${o.service_name} - ${o.quantity} - <b style="color:gold">${o.status}</b></div>`).join('');
-}
-
-// ADMIN
-function adminLogin(){
-if(admin_pass.value==='MARO@2026'){
-adminLogin.style.display='none';
-document.getElementById('adminPanel').style.display='block';
-loadAdmin();
-}else alert('غلط');
-}
-async function addService(){
-let {error}=await sb.from('maro_services').insert({name:s_name.value,description:s_desc.value,price_per_1000:parseFloat(s_price.value),min_order:parseInt(s_min.value),max_order:parseInt(s_max.value),category:s_cat.value});
-if(error) alert(error.message); else {alert('تم'); loadAdmin();}
-}
-async function loadAdmin(){
-let {data:s}=await sb.from('maro_services').select('*').order('id',{ascending:false});
-adminServices.innerHTML='<h4>الخدمات</h4>'+s.map(x=>`<div style="border-bottom:1px solid #333;padding:6px">${x.name} - ${x.price_per_1000}ج <button onclick="delS(${x.id})" style="background:red;color:#fff;border:none;border-radius:5px">حذف</button></div>`).join('');
-let {data:o}=await sb.from('maro_orders').select('*').order('id',{ascending:false}).limit(20);
-adminOrders.innerHTML='<h4>الطلبات</h4>'+o.map(o=>`<div style="font-size:12px;border-bottom:1px solid #333;padding:6px">${o.user_email} - ${o.service_name} - ${o.status} <select onchange="updO(${o.id},this.value)"><option>${o.status}</option><option>pending</option><option>in_progress</option><option>completed</option></select></div>`).join('');
-let {data:p}=await sb.from('maro_payments').select('*').order('id',{ascending:false});
-adminPayments.innerHTML='<h4>شحن فودافون كاش 01030980823</h4>'+p.map(p=>`<div style="font-size:12px;border-bottom:1px solid #333;padding:6px">${p.user_email} - ${p.amount}ج - ${p.sender_number} - ${p.status} <button onclick="appP(${p.id})" style="background:green;color:#fff;border:none;border-radius:5px">تأكيد</button></div>`).join('');
-let {data:t}=await sb.from('maro_tickets').select('*').order('id',{ascending:false});
-adminTickets.innerHTML='<h4>التذاكر</h4>'+t.map(t=>`<div style="font-size:12px;border-bottom:1px solid #333;padding:6px"><b>${t.subject}</b> من ${t.user_email}<br>${t.message}<br><input id="r${t.id}" placeholder="ردك"><button onclick="repT(${t.id})">رد</button></div>`).join('');
-}
-async function delS(id){await sb.from('maro_services').delete().eq('id',id); loadAdmin();}
-async function updO(id,st){await sb.from('maro_orders').update({status:st}).eq('id',id);}
-async function appP(id){await sb.from('maro_payments').update({status:'approved'}).eq('id',id); loadAdmin();}
-async function repT(id){let v=document.getElementById('r'+id).value; await sb.from('maro_tickets').update({reply:v,status:'answered'}).eq('id',id); loadAdmin();}
+const SUPABASE_URL='https://okikwjwccskgqququowa.supabase.co';const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9raWt3andjY3NrcWdxdXF1b3dhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM3MTcyMjMsImV4cCI6MjEwOTI5MzIyM30.6PJlnTrfQm4c74G7FXKuGLJsWaT_bdlOVQtjSBby4bw';const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+function showTab(n,el){document.querySelectorAll('[id^=tab-]').forEach(e=>e.style.display='none');document.getElementById('tab-'+n).style.display='block';document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');if(n==='services')loadServices();}
+async function loadServices(){let {data}=await sb.from('maro_services').select('*').order('id',{ascending:false});document.getElementById('services').innerHTML=data.map(s=>`<div class="service-item"><div><b>${s.name}</b><br><small style="color:#aaa">${s.description||''}</small><br><span style="font-size:12px">💰 ${s.price_per_1000}ج /1000 | 📦 ${s.min_order}-${s.max_order}</span></div><span class="badge">${s.category||'VIP'}</span></div>`).join('')||'<div style="text-align:center;padding:20px;color:#666">لسه مفيش خدمات - ادخل كأدمن وضيف</div>';document.getElementById('o_service_select').innerHTML=data.map(s=>`<option value="${s.name}">${s.name} - ${s.price_per_1000}ج</option>`).join('');}loadServices();
+async function placeOrder(){let {error}=await sb.from('maro_orders').insert({user_email:o_email.value,service_name:document.getElementById('o_service_select').value,link:o_link.value,quantity:parseInt(o_qty.value)});if(error)alert(error.message);else alert('🔥 تم استلام طلبك يا فخم - MARO هيبدأ التنفيذ');}
+async function submitPayment(){let {error}=await sb.from('maro_payments').insert({user_email:p_email.value,amount:parseFloat(p_amount.value),sender_number:p_number.value,trx_id:p_trx.value});if(error)alert(error.message);else alert('💎 تم - هنأكد شحنك على 01030980823 خلال دقائق');}
+function adminLoginFix(){let p=document.getElementById('admin_pass').value;if(p==='Maro_VIP_01030980823'){document.getElementById('adminLoginBox').style.display='none';document.getElementById('adminPanel').style.display='block';loadAdmin();}else alert('كلمة السر غلط');}
+async function addService(){let {error}=await sb.from('maro_services').insert({name:s_name.value,description:s_desc.value,price_per_1000:parseFloat(s_price.value),min_order:parseInt(s_min.value),max_order:parseInt(s_max.value),category:s_cat.value});if(error)alert(error.message);else{alert('تم اضافة خدمة VIP');loadAdmin();loadServices();}}
+async function loadAdmin(){let {data:s}=await sb.from('maro_services').select('*').order('id',{ascending:false});adminServices.innerHTML='<h4>الخدمات</h4>'+s.map(x=>`<div style="padding:8px;border-bottom:1px solid #222">${x.name} <button onclick="delS(${x.id})" style="background:red;color:#fff;border:none;border-radius:10px;padding:4px 10px">حذف</button></div>`).join('');let {data:o}=await sb.from('maro_orders').select('*').order('id',{ascending:false}).limit(20);adminOrders.innerHTML='<h4>الطلبات</h4>'+o.map(o=>`<div style="font-size:12px;padding:6px;border-bottom:1px solid #222">${o.user_email} - ${o.service_name} - <b style="color:gold">${o.status}</b> <select onchange="updO(${o.id},this.value)"><option>${o.status}</option><option>pending</option><option>in_progress</option><option>completed</option></select></div>`).join('');let {data:p}=await sb.from('maro_payments').select('*').order('id',{ascending:false});adminPayments.innerHTML='<h4>شحن 01030980823</h4>'+p.map(p=>`<div style="font-size:12px;padding:6px;border-bottom:1px solid #222">${p.user_email} - ${p.amount}ج - ${p.status} <button onclick="appP(${p.id})" style="background:gold;color:#000;border:none;border-radius:10px;padding:4px 10px">تأكيد</button></div>`).join('');}
+async function delS(id){await sb.from('maro_services').delete().eq('id',id);loadAdmin();}async function updO(id,st){await sb.from('maro_orders').update({status:st}).eq('id',id);}async function appP(id){await sb.from('maro_payments').update({status:'approved'}).eq('id',id);loadAdmin();}
 </script>
 </body>
 </html>
