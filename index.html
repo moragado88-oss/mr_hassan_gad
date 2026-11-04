@@ -1,88 +1,73 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MARO - Luxury SMM Panel</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+<html dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MARO STORE</title>
 <style>
-*{font-family:'Cairo',system-ui}
-body{margin:0;background:#000;color:#fff;overflow-x:hidden}
-.bg-anim{position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 20% 30%,#b8941f22 0%,transparent 50%),radial-gradient(circle at 80% 70%,#d4af3722 0%,transparent 50%),#000;animation:bgMove 10s infinite alternate}
-@keyframes bgMove{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(15deg)}}
-.header{background:rgba(20,20,20,0.8);backdrop-filter:blur(20px);border-bottom:1px solid #d4af37;padding:18px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 10px 40px #d4af3722}
-.logo{font-size:42px;font-weight:900;background:linear-gradient(45deg,gold,#fff,gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:6px;animation:shine 2s infinite}
-@keyframes shine{0%,100%{filter:brightness(1)}50%{filter:brightness(1.5)}}
-.card{background:linear-gradient(145deg,rgba(25,25,25,0.9),rgba(10,10,10,0.9));border:1px solid #d4af3733;border-radius:22px;padding:20px;margin:14px;backdrop-filter:blur(10px);box-shadow:0 10px 30px #000, inset 0 1px 0 #ffffff11;transform:translateY(0);transition:0.4s;animation:fadeUp 0.6s}
-.card:hover{transform:translateY(-4px);border-color:gold;box-shadow:0 20px 50px #d4af3733}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.btn-gold{background:linear-gradient(45deg,#d4af37,#f9e27a,#b8941f);color:#000;padding:14px;border:none;border-radius:30px;font-weight:900;cursor:pointer;width:100%;margin-top:10px;box-shadow:0 5px 20px #d4af3755;transition:0.3s}
-.btn-gold:hover{transform:scale(1.03);box-shadow:0 10px 30px #d4af3766}
-.tabs{display:flex;gap:8px;padding:12px;overflow-x:auto;background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);position:sticky;top:86px;z-index:9}
-.tab{padding:12px 18px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:30px;cursor:pointer;white-space:nowrap;transition:0.3s}
-.tab.active{background:linear-gradient(45deg,gold,#b8941f);color:#000;font-weight:900;box-shadow:0 5px 20px #d4af3755;transform:scale(1.05)}
-input,textarea,select{width:100%;padding:14px;margin:8px 0;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff;border-radius:14px;box-sizing:border-box;transition:0.3s}
-input:focus{border-color:gold;background:rgba(255,255,255,0.08);outline:none;box-shadow:0 0 20px #d4af3722}
-.service-item{padding:16px;border-bottom:1px solid #ffffff0d;display:flex;justify-content:space-between;align-items:center;animation:fadeUp 0.4s}
-.service-item b{color:gold}
-.badge{background:gold;color:#000;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:900}
-.glow-text{color:gold;text-shadow:0 0 20px gold}
-</style>
-</head>
-<body>
-<div class="bg-anim"></div>
+body{margin:0;background:#000;color:#fff;font-family:system-ui;text-align:center}
+.header{padding:20px;background:#111;border-bottom:2px solid gold}
+.logo{font-size:40px;font-weight:900;color:gold}
+.btn{background:gold;color:#000;padding:15px 25px;border:none;border-radius:30px;font-weight:900;margin:8px;cursor:pointer;display:inline-block;text-decoration:none}
+.card{background:#151515;border:1px solid #333;padding:20px;border-radius:20px;margin:15px}
+input{width:90%;padding:14px;margin:8px;background:#222;color:#fff;border:1px solid #444;border-radius:12px}
+.product{border:1px solid gold;padding:15px;margin:10px;border-radius:15px}
+</style></head><body>
 <div class="header">
-<div class="logo">MARO</div>
-<div class="glow-text" style="font-size:13px;letter-spacing:2px">LUXURY SMM PANEL • 01030980823</div>
-<a href="https://wa.me/201030980823" style="display:inline-block;margin-top:12px;background:#25D366;color:#fff;padding:8px 18px;border-radius:30px;text-decoration:none;font-weight:900;box-shadow:0 5px 20px #25D36655">💬 واتساب فوري</a>
+<div class="logo">MARO STORE</div>
+<div>فودافون كاش: 01030980823</div>
+<a class="btn" href="https://wa.me/201030980823">واتساب MARO</a>
 </div>
 
-<div class="tabs">
-<div class="tab active" onclick="showTab('services',this)">🛒 الخدمات الفخمة</div>
-<div class="tab" onclick="showTab('order',this)">⚡ طلب برق</div>
-<div class="tab" onclick="showTab('balance',this)">💎 شحن VIP</div>
-<div class="tab" onclick="showTab('admin',this)">👑 MARO ADMIN</div>
+<div class="card">
+<h2 style="color:gold">🛒 منتجات MARO</h2>
+<div class="product">
+<b>🔥 متابعين انستا VIP</b><br>
+1000 متابع = 25 جنيه<br>
+<button class="btn" onclick="order('متابعين انستا')">اطلب الان</button>
+</div>
+<div class="product">
+<b>🎵 متابعين تيك توك</b><br>
+1000 متابع = 30 جنيه<br>
+<button class="btn" onclick="order('متابعين تيك توك')">اطلب الان</button>
+</div>
+<div class="product">
+<b>👁️ مشاهدات + لايكات</b><br>
+1000 = 15 جنيه<br>
+<button class="btn" onclick="order('مشاهدات')">اطلب الان</button>
+</div>
 </div>
 
-<div id="tab-services" class="card">
-<h3 class="glow-text">🔥 خدمات MARO الـ VIP</h3>
-<div id="services"></div>
+<div class="card">
+<h3 style="color:gold">📝 اطلب الان</h3>
+<input id="email" placeholder="ايميلك">
+<input id="link" placeholder="رابط حسابك">
+<input id="qty" type="number" placeholder="الكمية">
+<button class="btn" onclick="sendOrder()">🚀 ارسال الطلب لـ MARO</button>
+<p id="msg"></p>
 </div>
 
-<div id="tab-order" class="card" style="display:none">
-<h3 class="glow-text">⚡ طلب جديد - تنفيذ فوري</h3>
-<input id="o_email" placeholder="📧 ايميلك">
-<select id="o_service_select" style="border:1px solid gold"></select>
-<input id="o_link" placeholder="🔗 رابط الحساب">
-<input id="o_qty" type="number" placeholder="🔢 الكمية">
-<button class="btn-gold" onclick="placeOrder()">🚀 اطلب الان - MARO</button>
+<div class="card">
+<h3>👑 دخول الادمن</h3>
+<input id="pass" type="password" placeholder="كلمة السر">
+<button class="btn" onclick="login()">دخول</button>
+<div id="admin" style="display:none">
+<p style="color:gold">مرحبا MARO - لوحة التحكم شغالة ✅</p>
+<p>الطلبات هتجيلك على واتساب 01030980823</p>
 </div>
-
-<div id="tab-balance" class="card" style="display:none">
-<h3 class="glow-text">💎 شحن رصيد VIP - فودافون كاش</h3>
-<div style="background:linear-gradient(145deg,#1a1a1a,#0a0a0a);border:1px solid gold;border-radius:16px;padding:16px;text-align:center">
-<div style="color:#888;font-size:12px">حول على رقم MARO الرسمي</div>
-<div style="font-size:28px;font-weight:900;color:gold;text-shadow:0 0 20px gold">01030980823</div>
-<div style="font-size:11px;color:#666">التأكيد في خلال 10 دقائق</div>
-</div>
-<input id="p_email" placeholder="ايميلك"><input id="p_amount" type="number" placeholder="المبلغ"><input id="p_number" placeholder="رقمك"><input id="p_trx" placeholder="Transaction ID"><button class="btn-gold" onclick="submitPayment()">💳 ارسال طلب الشحن</button>
-</div>
-
-<div id="tab-admin" class="card" style="display:none">
-<div id="adminLoginBox"><h3 class="glow-text">👑 دخول MARO الخاص</h3><input id="admin_pass" type="password" placeholder="كلمة السر السرية"><button class="btn-gold" onclick="adminLoginFix()">🔓 دخول</button></div>
-<div id="adminPanel" style="display:none"><h2 class="glow-text">لوحة تحكم MARO LUXURY</h2><input id="s_name" placeholder="اسم الخدمة الفخمة"><textarea id="s_desc" placeholder="الوصف الفخم - وصول + ضمان"><\/textarea><input id="s_price" type="number" placeholder="السعر لكل 1000"><input id="s_min" type="number" placeholder="اقل كمية"><input id="s_max" type="number" placeholder="اكبر كمية"><input id="s_cat" placeholder="القسم"><button class="btn-gold" onclick="addService()">➕ اضافة خدمة VIP</button><button class="btn-gold" onclick="loadAdmin()" style="background:#222;color:gold;border:1px solid gold">🔄 تحديث</button><div id="adminServices"></div><div id="adminPayments"></div><div id="adminOrders"></div></div>
 </div>
 
 <script>
-const SUPABASE_URL='https://okikwjwccskgqququowa.supabase.co';const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9raWt3andjY3NrcWdxdXF1b3dhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM3MTcyMjMsImV4cCI6MjEwOTI5MzIyM30.6PJlnTrfQm4c74G7FXKuGLJsWaT_bdlOVQtjSBby4bw';const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-function showTab(n,el){document.querySelectorAll('[id^=tab-]').forEach(e=>e.style.display='none');document.getElementById('tab-'+n).style.display='block';document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');if(n==='services')loadServices();}
-async function loadServices(){let {data}=await sb.from('maro_services').select('*').order('id',{ascending:false});document.getElementById('services').innerHTML=data.map(s=>`<div class="service-item"><div><b>${s.name}</b><br><small style="color:#aaa">${s.description||''}</small><br><span style="font-size:12px">💰 ${s.price_per_1000}ج /1000 | 📦 ${s.min_order}-${s.max_order}</span></div><span class="badge">${s.category||'VIP'}</span></div>`).join('')||'<div style="text-align:center;padding:20px;color:#666">لسه مفيش خدمات - ادخل كأدمن وضيف</div>';document.getElementById('o_service_select').innerHTML=data.map(s=>`<option value="${s.name}">${s.name} - ${s.price_per_1000}ج</option>`).join('');}loadServices();
-async function placeOrder(){let {error}=await sb.from('maro_orders').insert({user_email:o_email.value,service_name:document.getElementById('o_service_select').value,link:o_link.value,quantity:parseInt(o_qty.value)});if(error)alert(error.message);else alert('🔥 تم استلام طلبك يا فخم - MARO هيبدأ التنفيذ');}
-async function submitPayment(){let {error}=await sb.from('maro_payments').insert({user_email:p_email.value,amount:parseFloat(p_amount.value),sender_number:p_number.value,trx_id:p_trx.value});if(error)alert(error.message);else alert('💎 تم - هنأكد شحنك على 01030980823 خلال دقائق');}
-function adminLoginFix(){let p=document.getElementById('admin_pass').value;if(p==='Maro_VIP_01030980823'){document.getElementById('adminLoginBox').style.display='none';document.getElementById('adminPanel').style.display='block';loadAdmin();}else alert('كلمة السر غلط');}
-async function addService(){let {error}=await sb.from('maro_services').insert({name:s_name.value,description:s_desc.value,price_per_1000:parseFloat(s_price.value),min_order:parseInt(s_min.value),max_order:parseInt(s_max.value),category:s_cat.value});if(error)alert(error.message);else{alert('تم اضافة خدمة VIP');loadAdmin();loadServices();}}
-async function loadAdmin(){let {data:s}=await sb.from('maro_services').select('*').order('id',{ascending:false});adminServices.innerHTML='<h4>الخدمات</h4>'+s.map(x=>`<div style="padding:8px;border-bottom:1px solid #222">${x.name} <button onclick="delS(${x.id})" style="background:red;color:#fff;border:none;border-radius:10px;padding:4px 10px">حذف</button></div>`).join('');let {data:o}=await sb.from('maro_orders').select('*').order('id',{ascending:false}).limit(20);adminOrders.innerHTML='<h4>الطلبات</h4>'+o.map(o=>`<div style="font-size:12px;padding:6px;border-bottom:1px solid #222">${o.user_email} - ${o.service_name} - <b style="color:gold">${o.status}</b> <select onchange="updO(${o.id},this.value)"><option>${o.status}</option><option>pending</option><option>in_progress</option><option>completed</option></select></div>`).join('');let {data:p}=await sb.from('maro_payments').select('*').order('id',{ascending:false});adminPayments.innerHTML='<h4>شحن 01030980823</h4>'+p.map(p=>`<div style="font-size:12px;padding:6px;border-bottom:1px solid #222">${p.user_email} - ${p.amount}ج - ${p.status} <button onclick="appP(${p.id})" style="background:gold;color:#000;border:none;border-radius:10px;padding:4px 10px">تأكيد</button></div>`).join('');}
-async function delS(id){await sb.from('maro_services').delete().eq('id',id);loadAdmin();}async function updO(id,st){await sb.from('maro_orders').update({status:st}).eq('id',id);}async function appP(id){await sb.from('maro_payments').update({status:'approved'}).eq('id',id);loadAdmin();}
+function order(name){
+document.getElementById('email').scrollIntoView({behavior:'smooth'});
+document.getElementById('msg').innerHTML='اخترت: <b style="color:gold">'+name+'</b> - اكتب بياناتك تحت';
+}
+function sendOrder(){
+if(!email.value||!link.value)return alert('اكتب ايميلك والرابط');
+let text='طلب جديد MARO%0Aالخدمة: متابعين%0Aالايميل: '+email.value+'%0Aالرابط: '+link.value+'%0Aالكمية: '+qty.value;
+window.open('https://wa.me/201030980823?text='+text,'_blank');
+document.getElementById('msg').innerHTML='<b style="color:#25D366">✅ تم - افتح واتساب واكمل</b>';
+}
+function login(){
+if(pass.value==='Maro123'){
+document.getElementById('admin').style.display='block';
+}else alert('الباسورد غلط - جرب Maro123');
+}
 </script>
-</body>
-</html>
+</body></html>
