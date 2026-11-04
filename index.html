@@ -1,151 +1,176 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maro Store - SMM Panel</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MARO PANEL - منصة مارو الرسمية</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root{--bg:#0f1115;--card:#1a1d24;--border:#2a2e39;--primary:#6c5ce7;--green:#00b894;--text:#fff;--muted:#9aa0b0}
-*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui}
-body{background:var(--bg);color:var(--text);min-height:100vh}
-.header{padding:16px 20px;background:var(--card);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-.logo{font-weight:900;font-size:22px;color:var(--primary)}
-.btn{padding:10px 18px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
-.btn-primary{background:var(--primary);color:#fff}
-.btn-ghost{background:var(--card);border:1px solid var(--border);color:var(--text)}
-.container{max-width:1100px;margin:20px auto;padding:0 16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}}
-.input{width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#11131a;color:#fff;margin-top:8px}
-.service{border:1px solid var(--border);border-radius:12px;padding:14px}
-.badge{padding:4px 10px;border-radius:20px;font-size:12px;background:#2d3436}
-.hidden{display:none}
-.tabs{display:flex;gap:8px;margin-bottom:16px;overflow:auto}
-.tab{padding:10px 16px;border-radius:10px;cursor:pointer;border:1px solid var(--border);background:var(--card)}
-.tab.active{background:var(--primary);border-color:var(--primary)}
+body{background:#050505;color:#fff;font-family:system-ui;margin:0}
+.header{background:#111;padding:15px;text-align:center;border-bottom:2px solid gold;position:sticky;top:0;z-index:10}
+.logo{font-size:32px;font-weight:900;color:gold;letter-spacing:4px}
+.card{background:#151515;border:1px solid #333;padding:15px;border-radius:15px;margin:12px}
+.btn-gold{background:linear-gradient(45deg,gold,#b8941f);color:#000;padding:12px 20px;border:none;border-radius:25px;font-weight:bold;cursor:pointer;width:100%;margin-top:8px}
+.btn-whats{background:#25D366;color:#fff;padding:10px 20px;border-radius:25px;font-weight:bold;text-decoration:none;display:inline-block;margin-top:10px}
+input,textarea,select{width:100%;padding:12px;margin:6px 0;background:#222;color:#fff;border:1px solid #444;border-radius:10px;box-sizing:border-box}
+.tabs{display:flex;gap:5px;padding:10px;overflow-x:auto;background:#0a0a0a}
+.tab{padding:10px 15px;background:#222;border-radius:20px;cursor:pointer;white-space:nowrap;font-size:13px}
+.tab.active{background:gold;color:#000;font-weight:bold}
+table{width:100%;font-size:12px;border-collapse:collapse}
+th,td{border:1px solid #333;padding:6px}
+.admin-only{display:none}
 </style>
 </head>
 <body>
 <div class="header">
-<div class="logo">MARO STORE 🔥</div>
-<div id="authArea">
-<button class="btn btn-ghost" onclick="showAuth('login')">دخول</button>
-<button class="btn btn-primary" onclick="showAuth('signup')">حساب جديد</button>
+<div class="logo">MARO</div>
+<div style="font-size:12px;color:#aaa">SMM PANEL - فودافون كاش: 01030980823</div>
+<a class="btn-whats" href="https://wa.me/201030980823" target="_blank">💬 واتساب 01030980823</a>
 </div>
-<div id="userArea" class="hidden">
-<span id="userEmail" style="margin-left:10px;color:var(--muted)"></span>
-<span id="userBalance" style="margin-left:10px;color:var(--green);font-weight:800"></span>
-<button class="btn btn-ghost" onclick="logout()">خروج</button>
-</div>
-</div>
-<div class="container">
-<div id="authCard" class="card">
-<h2 id="authTitle">تسجيل الدخول</h2>
-<input id="email" class="input" placeholder="moragado88@gmail.com">
-<input id="password" class="input" type="password" placeholder="الباسورد">
-<div style="margin-top:12px;display:flex;gap:8px">
-<button class="btn btn-primary" style="flex:1" onclick="handleAuth()">دخول</button>
-<button class="btn btn-ghost" onclick="toggleAuthMode()">حساب جديد؟</button>
-</div>
-<p id="authMsg" style="margin-top:10px;color:#ff7675"></p>
-</div>
-<div id="mainApp" class="hidden">
+
 <div class="tabs">
-<div class="tab active" onclick="switchTab('services',event)">🛒 الخدمات</div>
-<div class="tab" onclick="switchTab('orders',event)">📦 طلباتي</div>
-<div class="tab" id="adminTabBtn" onclick="switchTab('admin',event)" style="display:none">👑 لوحة الأدمن</div>
+<div class="tab active" onclick="showTab('services')">🛒 الخدمات</div>
+<div class="tab" onclick="showTab('order')">📝 طلب</div>
+<div class="tab" onclick="showTab('balance')">💰 شحن رصيد</div>
+<div class="tab" onclick="showTab('tickets')">🎫 تذاكر</div>
+<div class="tab" onclick="showTab('my')">📦 طلباتي</div>
+<div class="tab" onclick="showTab('admin')">👑 ادمن MARO</div>
 </div>
-<div id="tab-services">
-<div class="card"><h3>اطلب خدمة جديدة</h3>
-<div class="grid" style="margin-top:12px">
-<div><label>الخدمة</label><select id="serviceSelect" class="input"></select></div>
-<div><label>الرابط</label><input id="orderLink" class="input" placeholder="https://..."></div>
-<div><label>الكمية</label><input id="orderQty" type="number" class="input" placeholder="1000"></div>
-<div><label>السعر</label><input id="orderPrice" class="input" disabled></div>
+
+<div id="tab-services" class="card">
+<h3 style="color:gold">🔥 خدمات MARO</h3>
+<div id="services">جاري التحميل...</div>
 </div>
-<button class="btn btn-primary" style="width:100%;margin-top:12px" onclick="createOrder()">تأكيد الطلب ✅</button>
-<p id="orderMsg"></p>
+
+<div id="tab-order" class="card" style="display:none">
+<h3>عمل طلب جديد</h3>
+<input id="o_email" placeholder="ايميلك">
+<select id="o_service_select"></select>
+<input id="o_service" placeholder="او اكتب اسم الخدمة">
+<input id="o_link" placeholder="رابط الحساب / البوست">
+<input id="o_qty" type="number" placeholder="الكمية">
+<button class="btn-gold" onclick="placeOrder()">اطلب الان</button>
 </div>
-<div id="servicesList" class="grid"></div>
+
+<div id="tab-balance" class="card" style="display:none">
+<h3>💳 شحن رصيد - فودافون كاش</h3>
+<div style="background:#222;padding:12px;border-radius:10px;border-right:3px solid gold">
+حول على رقم MARO:<br><b style="color:gold;font-size:20px">01030980823</b><br>
+بعد التحويل املى البيانات
 </div>
-<div id="tab-orders" class="hidden"><div class="card"><h3>طلباتي</h3><div id="ordersList"></div></div></div>
-<div id="tab-admin" class="hidden">
-<div class="card"><h3>إضافة خدمة جديدة</h3>
-<div class="grid">
-<input id="s_name" class="input" placeholder="اسم الخدمة">
-<input id="s_category" class="input" placeholder="التصنيف - instagram">
-<input id="s_price" type="number" step="0.01" class="input" placeholder="سعر الألف">
-<input id="s_min" type="number" class="input" placeholder="أقل كمية">
-<input id="s_max" type="number" class="input" placeholder="أكبر كمية">
+<input id="p_email" placeholder="ايميلك">
+<input id="p_amount" type="number" placeholder="المبلغ اللي حولته">
+<input id="p_number" placeholder="رقمك اللي حولت منه">
+<input id="p_trx" placeholder="رقم العملية Transaction ID">
+<button class="btn-gold" onclick="submitPayment()">ارسال طلب الشحن</button>
 </div>
-<textarea id="s_desc" class="input" placeholder="وصف الخدمة"></textarea>
-<button class="btn btn-primary" style="width:100%;margin-top:12px" onclick="addService()">إضافة الخدمة ➕</button>
-<p id="adminMsg"></p>
+
+<div id="tab-tickets" class="card" style="display:none">
+<h3>🎫 تذكرة / شكوى</h3>
+<input id="t_email" placeholder="ايميلك">
+<input id="t_sub" placeholder="الموضوع">
+<textarea id="t_msg" placeholder="مشكلتك..."></textarea>
+<button class="btn-gold" onclick="openTicket()">ارسال</button>
 </div>
-<div class="card"><h3>كل الطلبات (أدمن)</h3><div id="allOrdersList"></div></div>
+
+<div id="tab-my" class="card" style="display:none">
+<h3>طلباتي</h3>
+<input id="my_email" placeholder="ايميلك">
+<button class="btn-gold" onclick="myOrders()">عرض طلباتي</button>
+<div id="myOrdersList"></div>
+</div>
+
+<div id="tab-admin" class="card" style="display:none">
+<div id="adminLogin">
+<h3 style="color:gold">👑 دخول ادمن MARO</h3>
+<input id="admin_pass" type="password" placeholder="كلمة السر">
+<button class="btn-gold" onclick="adminLogin()">دخول</button>
+<p style="font-size:11px;color:#666">الافتراضي: MARO@2026</p>
+</div>
+<div id="adminPanel" style="display:none">
+<h2 style="color:gold">لوحة تحكم MARO</h2>
+
+<div style="background:#222;padding:12px;border-radius:10px;margin:10px 0">
+<h4>➕ اضافة خدمة</h4>
+<input id="s_name" placeholder="اسم الخدمة">
+<textarea id="s_desc" placeholder="الوصف - وصول / ضمان / .."></textarea>
+<input id="s_price" type="number" placeholder="السعر لكل 1000">
+<input id="s_min" type="number" placeholder="اقل كمية 100">
+<input id="s_max" type="number" placeholder="اكبر كمية 10000">
+<input id="s_cat" placeholder="القسم Instagram/TikTok">
+<button class="btn-gold" onclick="addService()">اضافة</button>
+</div>
+
+<button class="btn-gold" onclick="loadAdmin()">🔄 تحديث كل البيانات</button>
+<div id="adminServices"></div>
+<div id="adminPayments"></div>
+<div id="adminOrders"></div>
+<div id="adminTickets"></div>
 </div>
 </div>
-</div>
+
 <script>
-const SUPABASE_URL = "https://okikwjwccskqgququowa.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9raWt3andjY3NrcWdxdXF1b3dhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM3MTcyMjMsImV4cCI6MjEwOTI5MzIyM30.6PJlnTrfQm4c74G7FXKuGLJsWaT_bdlOVQtjSBby4bw";
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-let authMode='login',currentUser=null,currentProfile=null,services=[];
-function showAuth(m){document.getElementById('authCard').classList.remove('hidden');authMode=m;document.getElementById('authTitle').innerText=m==='login'?'تسجيل الدخول':'إنشاء حساب جديد'}
-function toggleAuthMode(){authMode=authMode==='login'?'signup':'login';showAuth(authMode)}
-async function handleAuth(){
- const email=document.getElementById('email').value.trim();
- const pass=document.getElementById('password').value;
- const msg=document.getElementById('authMsg');msg.innerText='...';
- try{
-  let res=authMode==='login'?await supabaseClient.auth.signInWithPassword({email,password:pass}):await supabaseClient.auth.signUp({email,password:pass});
-  if(res.error) throw res.error;
-  msg.style.color='#00b894';msg.innerText='تم ✅';checkUser();
- }catch(e){msg.style.color='#ff7675';msg.innerText=e.message;}
+const SUPABASE_URL='https://okikwjwccskgqququowa.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9raWt3andjY3NrcWdxdXF1b3dhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM3MTcyMjMsImV4cCI6MjEwOTI5MzIyM30.6PJlnTrfQm4c74G7FXKuGLJsWaT_bdlOVQtjSBby4bw';
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+function showTab(n){
+document.querySelectorAll('[id^=tab-]').forEach(e=>e.style.display='none');
+document.getElementById('tab-'+n).style.display='block';
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+event.target.classList.add('active');
+if(n==='services') loadServices();
 }
-async function checkUser(){
- const {data:{user}}=await supabaseClient.auth.getUser();if(!user)return;
- currentUser=user;
- document.getElementById('authCard').classList.add('hidden');
- document.getElementById('authArea').classList.add('hidden');
- document.getElementById('userArea').classList.remove('hidden');
- document.getElementById('mainApp').classList.remove('hidden');
- document.getElementById('userEmail').innerText=user.email;
- const {data:profile}=await supabaseClient.from('profiles').select('*').eq('id',user.id).single();
- if(profile){currentProfile=profile;document.getElementById('userBalance').innerText=(profile.balance||0)+' $';if(profile.role==='admin')document.getElementById('adminTabBtn').style.display='block';}
- loadServices();loadOrders();
-}
-async function logout(){await supabaseClient.auth.signOut();location.reload();}
+
 async function loadServices(){
- const {data}=await supabaseClient.from('services').select('*').order('id');services=data||[];
- const sel=document.getElementById('serviceSelect');sel.innerHTML='';const list=document.getElementById('servicesList');list.innerHTML='';
- services.forEach(s=>{const opt=document.createElement('option');opt.value=s.id;opt.textContent=`${s.name} - $${s.price_per_1000}/1000`;sel.appendChild(opt);
- const div=document.createElement('div');div.className='service card';div.innerHTML=`<b>${s.name}</b> <span class="badge">${s.category||''}</span><p style="color:var(--muted);margin-top:6px">${s.description||''}</p>`;list.appendChild(div);});
- sel.onchange=calcPrice;document.getElementById('orderQty').oninput=calcPrice;calcPrice();
+let {data}=await sb.from('maro_services').select('*').order('id',{ascending:false});
+document.getElementById('services').innerHTML=data.map(s=>`<div style="border-bottom:1px solid #333;padding:12px"><b style="color:gold">${s.name}</b><br><small>${s.description||''}</small><br>💰 ${s.price_per_1000}ج /1000 | 📦 ${s.min_order}-${s.max_order}<br><span style="color:#888">${s.category}</span></div>`).join('')||'مفيش خدمات لسه';
+document.getElementById('o_service_select').innerHTML=data.map(s=>`<option value="${s.name}">${s.name} - ${s.price_per_1000}ج</option>`).join('');
 }
-function calcPrice(){const sel=document.getElementById('serviceSelect');const qty=document.getElementById('orderQty').value;if(!sel.value||!qty)return;const srv=services.find(x=>x.id==sel.value);const price=(qty/1000)*parseFloat(srv.price_per_1000);document.getElementById('orderPrice').value=price.toFixed(2)+' $';}
-async function createOrder(){
- const service_id=document.getElementById('serviceSelect').value;const link=document.getElementById('orderLink').value.trim();const quantity=parseInt(document.getElementById('orderQty').value);const msg=document.getElementById('orderMsg');
- if(!link||!quantity){msg.innerText='كمل البيانات';return;}
- const srv=services.find(x=>x.id==service_id);const total=(quantity/1000)*parseFloat(srv.price_per_1000);msg.innerText='جاري...';
- const {error}=await supabaseClient.from('orders').insert({user_id:currentUser.id,service_id,link,quantity,charge:total,status:'pending'});
- if(error){msg.style.color='#ff7675';msg.innerText=error.message;}else{msg.style.color='#00b894';msg.innerText='تم الطلب ✅';loadOrders();}
+loadServices();
+
+async function placeOrder(){
+let {error}=await sb.from('maro_orders').insert({user_email:o_email.value,service_name:o_service.value||o_service_select.value,link:o_link.value,quantity:parseInt(o_qty.value)});
+if(error) alert(error.message); else alert('تم استلام طلبك ✅');
 }
-async function loadOrders(){
- const {data}=await supabaseClient.from('orders').select('*,services(name)').eq('user_id',currentUser.id).order('created_at',{ascending:false});
- const c=document.getElementById('ordersList');if(!data||!data.length){c.innerHTML='لا يوجد';return;}
- c.innerHTML=data.map(o=>`<div class="service"><b>${o.services?.name}</b> - ${o.quantity} - $${o.charge}<br><small>${o.link}</small><br><span class="badge">${o.status}</span></div>`).join('');
- if(currentProfile?.role==='admin'){const {data:all}=await supabaseClient.from('orders').select('*,services(name)').order('created_at',{ascending:false}).limit(50);document.getElementById('allOrdersList').innerHTML=(all||[]).map(o=>`<div class="service"><b>${o.services?.name}</b><br>${o.link} - ${o.quantity} - $${o.charge}</div>`).join('');}
+async function submitPayment(){
+let {error}=await sb.from('maro_payments').insert({user_email:p_email.value,amount:parseFloat(p_amount.value),sender_number:p_number.value,trx_id:p_trx.value});
+if(error) alert(error.message); else alert('تم ارسال طلب الشحن - هنراجع فودافون كاش 01030980823');
 }
-function switchTab(n,e){document.getElementById('tab-services').classList.add('hidden');document.getElementById('tab-orders').classList.add('hidden');document.getElementById('tab-admin').classList.add('hidden');document.getElementById('tab-'+n).classList.remove('hidden');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));if(e)e.target.classList.add('active');}
+async function openTicket(){
+let {error}=await sb.from('maro_tickets').insert({user_email:t_email.value,subject:t_sub.value,message:t_msg.value});
+if(error) alert(error.message); else alert('تم ارسال التذكرة');
+}
+async function myOrders(){
+let {data}=await sb.from('maro_orders').select('*').eq('user_email',my_email.value).order('id',{ascending:false});
+myOrdersList.innerHTML=data.map(o=>`<div style="border-bottom:1px solid #333;padding:8px">${o.service_name} - ${o.quantity} - <b style="color:gold">${o.status}</b></div>`).join('');
+}
+
+// ADMIN
+function adminLogin(){
+if(admin_pass.value==='MARO@2026'){
+adminLogin.style.display='none';
+document.getElementById('adminPanel').style.display='block';
+loadAdmin();
+}else alert('غلط');
+}
 async function addService(){
- const name=document.getElementById('s_name').value;const category=document.getElementById('s_category').value;const price_per_1000=parseFloat(document.getElementById('s_price').value);const min_order=parseInt(document.getElementById('s_min').value)||100;const max_order=parseInt(document.getElementById('s_max').value)||10000;const description=document.getElementById('s_desc').value;const msg=document.getElementById('adminMsg');
- const {error}=await supabaseClient.from('services').insert({name,category,price_per_1000,min_order,max_order,description});
- if(error){msg.innerText=error.message;msg.style.color='#ff7675';}else{msg.innerText='تمت الإضافة ✅';msg.style.color='#00b894';loadServices();}
+let {error}=await sb.from('maro_services').insert({name:s_name.value,description:s_desc.value,price_per_1000:parseFloat(s_price.value),min_order:parseInt(s_min.value),max_order:parseInt(s_max.value),category:s_cat.value});
+if(error) alert(error.message); else {alert('تم'); loadAdmin();}
 }
-checkUser();
+async function loadAdmin(){
+let {data:s}=await sb.from('maro_services').select('*').order('id',{ascending:false});
+adminServices.innerHTML='<h4>الخدمات</h4>'+s.map(x=>`<div style="border-bottom:1px solid #333;padding:6px">${x.name} - ${x.price_per_1000}ج <button onclick="delS(${x.id})" style="background:red;color:#fff;border:none;border-radius:5px">حذف</button></div>`).join('');
+let {data:o}=await sb.from('maro_orders').select('*').order('id',{ascending:false}).limit(20);
+adminOrders.innerHTML='<h4>الطلبات</h4>'+o.map(o=>`<div style="font-size:12px;border-bottom:1px solid #333;padding:6px">${o.user_email} - ${o.service_name} - ${o.status} <select onchange="updO(${o.id},this.value)"><option>${o.status}</option><option>pending</option><option>in_progress</option><option>completed</option></select></div>`).join('');
+let {data:p}=await sb.from('maro_payments').select('*').order('id',{ascending:false});
+adminPayments.innerHTML='<h4>شحن فودافون كاش 01030980823</h4>'+p.map(p=>`<div style="font-size:12px;border-bottom:1px solid #333;padding:6px">${p.user_email} - ${p.amount}ج - ${p.sender_number} - ${p.status} <button onclick="appP(${p.id})" style="background:green;color:#fff;border:none;border-radius:5px">تأكيد</button></div>`).join('');
+let {data:t}=await sb.from('maro_tickets').select('*').order('id',{ascending:false});
+adminTickets.innerHTML='<h4>التذاكر</h4>'+t.map(t=>`<div style="font-size:12px;border-bottom:1px solid #333;padding:6px"><b>${t.subject}</b> من ${t.user_email}<br>${t.message}<br><input id="r${t.id}" placeholder="ردك"><button onclick="repT(${t.id})">رد</button></div>`).join('');
+}
+async function delS(id){await sb.from('maro_services').delete().eq('id',id); loadAdmin();}
+async function updO(id,st){await sb.from('maro_orders').update({status:st}).eq('id',id);}
+async function appP(id){await sb.from('maro_payments').update({status:'approved'}).eq('id',id); loadAdmin();}
+async function repT(id){let v=document.getElementById('r'+id).value; await sb.from('maro_tickets').update({reply:v,status:'answered'}).eq('id',id); loadAdmin();}
 </script>
 </body>
 </html>
