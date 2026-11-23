@@ -1,107 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pen</title>
-  </head>
-  <body>
-
-    <script src="./script.js"></script>
-  </body>
-</html>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HASSAN GAD | English Academy - محمي</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070810">
+<title>MARO STORE — Social Growth Studio</title>
 <style>
-:root{--navy:#101b35;--gold:#e7b85b;--bg:#f3f5fa;--green:#16865d;--red:#d84b57}
-*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial;background:var(--bg);color:#17233d}
-header{background:linear-gradient(120deg,#101b35,#20385e);color:white;padding:25px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
-.logo{color:var(--gold);font-size:25px;font-weight:bold}
-.layout{display:grid;grid-template-columns:220px 1fr;gap:20px;max-width:1400px;margin:25px auto;padding:0 15px}
-aside{background:var(--navy);padding:15px;border-radius:16px;height:max-content}
-.navbtn{display:block;width:100%;padding:14px;border:0;border-radius:9px;background:none;color:white;text-align:right;font-size:14px;cursor:pointer;position:relative}
-.navbtn.active,.navbtn:hover{background:#ffffff20;color:var(--gold)}
-.navbtn.locked::after{content:'🔒';position:absolute;left:12px;top:13px}
-.page{display:none}.page.active{display:block}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
-.stat,.panel{background:white;padding:18px;border-radius:14px;margin-bottom:15px;box-shadow:0 4px 15px #00000008}
-.stat strong{display:block;font-size:27px;margin-top:10px}
-.btn{border:0;border-radius:9px;padding:11px 15px;background:var(--navy);color:white;margin:3px;cursor:pointer}
-.gold{background:var(--gold);color:#241b0d}.green{background:#e8f7f0;color:var(--green)}.red{background:#fff0f1;color:var(--red)}
-input,select{width:100%;padding:11px;border:1px solid #ddd;border-radius:9px;margin-top:5px}
-#outerLock{position:fixed;inset:0;background:linear-gradient(135deg,#0F172A,#20385E);z-index:9999;display:grid;place-items:center;padding:20px}
-.lockBox{background:white;border-radius:24px;padding:32px;max-width:420px;width:100%;text-align:center}
-.lockIcon{width:70px;height:70px;background:#FEF3C7;border-radius:50%;display:grid;place-items:center;font-size:32px;margin:0 auto 16px}
-#innerLock{position:fixed;inset:0;background:rgba(15,23,42,0.8);backdrop-filter:blur(6px);z-index:9998;display:none;place-items:center;padding:20px}
-.modalback{display:none;position:fixed;inset:0;background:#0009;z-index:10;padding:15px;overflow:auto}
-.modalback.show{display:grid;place-items:center}
-.modal{background:white;padding:22px;border-radius:15px;width:min(700px,100%)}
-@media(max-width:800px){.layout{grid-template-columns:1fr}aside{display:grid;grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root{--bg:#070810;--surface:#0d101b;--surface2:#121727;--stroke:rgba(255,255,255,.085);--white:#f5f6ff;--muted:#8e96ad;--violet:#9a76ff;--blue:#54c8ff;--mint:#66e0c0;--gold:#d7bd83}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Cairo,Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse at 12% 10%,#4d2d9c2b,transparent 33%),radial-gradient(ellipse at 90% 35%,#126e8430,transparent 32%),radial-gradient(ellipse at 55% 100%,#39215d24,transparent 36%)}
+body:after{content:"";position:fixed;inset:0;z-index:-2;opacity:.14;pointer-events:none;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}.container{width:min(1240px,calc(100% - 42px));margin:auto}
+.topline{height:3px;background:linear-gradient(90deg,transparent,#8b6cff,#51d5db,#d7bd83,transparent);background-size:200% 100%;animation:shine 6s linear infinite}@keyframes shine{to{background-position:200% 0}}
+header{position:sticky;top:0;z-index:30;background:#080a13c9;backdrop-filter:blur(22px);border-bottom:1px solid var(--stroke)}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',Cairo,sans-serif;font-size:21px;font-weight:700;letter-spacing:1.2px}.brand-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(145deg,#b69cff,#6052c8 55%,#45d3ce);color:#080912;font-size:22px;font-weight:900;box-shadow:0 0 28px #8c6aff50}.brand em{font-style:normal;color:#b9a5ff}.nav-mid{display:flex;gap:28px;color:#a2a9bc;font-size:12px}.nav-mid a:hover{color:white}.nav-right{display:flex;align-items:center;gap:10px}.status{font-size:10px;color:#a6f1d9;display:flex;align-items:center;gap:7px}.status i{width:6px;height:6px;background:#54d8ad;border-radius:50%;box-shadow:0 0 10px #54d8ad}.contact-btn{border:1px solid #a68aff55;background:#9b7aff14;color:#e4dbff;border-radius:10px;padding:9px 16px;font-size:11px;font-weight:800}
+.hero{min-height:520px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px;padding:62px 0 50px;position:relative}.hero-copy{position:relative;z-index:2}.overline{display:inline-flex;align-items:center;gap:10px;padding:7px 12px;border:1px solid #a18aff44;border-radius:99px;background:#8d70ff12;color:#c8baff;font-size:10px;letter-spacing:.6px}.overline span{width:6px;height:6px;background:#77e3c7;border-radius:50%;box-shadow:0 0 12px #77e3c7}
+h1{font-size:clamp(42px,6vw,76px);line-height:1.12;letter-spacing:-2px;margin:22px 0 18px;font-weight:900}.shine-text{background:linear-gradient(105deg,#fff 0%,#bba8ff 36%,#6ddbd4 75%,#fff 100%);background-size:220%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:textshine 8s ease infinite}@keyframes textshine{50%{background-position:100% 0}}
+.hero-copy p{max-width:550px;color:#969eb4;font-size:14px;line-height:2.1;margin:0}.hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}.btn-main{border:0;border-radius:12px;padding:13px 22px;color:#090a13;font-weight:900;background:linear-gradient(110deg,#c1adff,#68d9d4);box-shadow:0 10px 36px #8d79ff32;transition:.25s}.btn-main:hover{transform:translateY(-3px);box-shadow:0 15px 40px #8d79ff55}.btn-ghost{border:1px solid var(--stroke);background:#ffffff06;color:#dce1ef;border-radius:12px;padding:13px 20px;font-weight:700}
+.hero-visual{height:390px;position:relative;display:grid;place-items:center}.halo{position:absolute;width:320px;height:320px;border-radius:50%;border:1px solid #a88bff2c;box-shadow:0 0 70px #7f60e51a,inset 0 0 70px #7f60e510;animation:pulse 5s ease-in-out infinite}.halo:before,.halo:after{content:"";position:absolute;border:1px solid #66d8d544;border-radius:50%;inset:28px;transform:rotateX(68deg) rotate(-28deg)}.halo:after{inset:-20px;transform:rotateX(68deg) rotate(35deg);border-color:#b79bff2b}@keyframes pulse{50%{transform:scale(1.05);opacity:.7}}
+.orb{position:relative;width:210px;height:210px;border-radius:42px;transform:rotate(-12deg);background:linear-gradient(145deg,#2b2451,#141b31 55%,#102b36);border:1px solid #c1aaff55;box-shadow:0 35px 90px #0009,0 0 75px #8c6aff38,inset 0 1px #ffffff35;display:grid;place-items:center;animation:float 6s ease-in-out infinite}.orb:before{content:"";position:absolute;inset:10px;border:1px solid #ffffff17;border-radius:34px}.orb strong{font-family:'Space Grotesk',sans-serif;font-size:88px;letter-spacing:-9px;color:#fff;text-shadow:0 0 40px #a88affb0;transform:rotate(12deg)}@keyframes float{50%{transform:translateY(-13px) rotate(-8deg)}}
+.float-card{position:absolute;border:1px solid #ffffff20;background:linear-gradient(145deg,#171b2bcf,#0d1220e8);backdrop-filter:blur(15px);border-radius:14px;padding:12px 15px;box-shadow:0 20px 50px #0007;animation:float 6s ease-in-out infinite}.float-card b{display:block;font-size:12px}.float-card small{color:#9099b0;font-size:9px}.fc1{top:54px;right:0}.fc2{bottom:48px;left:0;animation-delay:-2s}.fc3{top:24px;left:20px;animation-delay:-4s}.mini-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#6ee0bf;margin-left:6px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);padding:20px 0;margin:0 0 68px}.metric{text-align:center;border-left:1px solid var(--stroke)}.metric:last-child{border:0}.metric b{font-family:'Space Grotesk',sans-serif;font-size:22px;display:block;color:#e8e4ff}.metric span{font-size:10px;color:var(--muted)}
+.section-title{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:24px}.kicker{font-size:10px;color:#ad9aff;letter-spacing:1.8px;text-transform:uppercase;font-family:'Space Grotesk',sans-serif}.section-title h2{font-size:29px;margin:5px 0 0;font-weight:900}.section-title p{color:var(--muted);font-size:11px;margin:0}
+.catalog{padding-bottom:80px}.catalog-shell{display:grid;grid-template-columns:245px 1fr;gap:22px;align-items:start}.platform-panel{position:sticky;top:100px;border:1px solid var(--stroke);border-radius:19px;background:linear-gradient(150deg,#121727e8,#0b0e18f2);padding:15px;overflow:hidden}.panel-label{font-size:10px;color:#727d96;padding:3px 9px 12px;letter-spacing:1px}.platform-list{display:grid;gap:7px}.platform{width:100%;display:flex;align-items:center;gap:12px;padding:11px 12px;border:1px solid transparent;border-radius:12px;background:transparent;color:#aab2c7;text-align:right;transition:.22s}.platform:hover{background:#ffffff08;color:#fff}.platform.active{background:linear-gradient(100deg,#9475ff22,#54d4d41a);border-color:#a38aff4b;color:#fff;box-shadow:inset -2px 0 #a58aff}.platform img{width:23px;height:23px;object-fit:contain;filter:drop-shadow(0 0 8px #ffffff18)}.platform span{font-size:12px;font-weight:800;flex:1}.platform small{font-size:9px;color:#77829b}.platform .arrow{font-size:15px;color:#9d8bda}.panel-foot{margin-top:15px;padding:13px 10px 4px;border-top:1px solid var(--stroke);font-size:9px;line-height:1.8;color:#79839a}
+.catalog-main{min-width:0}.catalog-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:16px;padding:4px 2px}.active-info{display:flex;align-items:center;gap:12px}.active-logo{width:46px;height:46px;border:1px solid var(--stroke);border-radius:14px;background:#ffffff08;display:grid;place-items:center}.active-logo img{width:25px;height:25px;object-fit:contain}.active-info h3{font-size:17px;margin:0}.active-info p{font-size:10px;color:var(--muted);margin:1px 0 0}.searchbox{position:relative}.searchbox input{width:220px;border:1px solid var(--stroke);border-radius:11px;background:#111624;color:white;padding:10px 35px 10px 12px;font-size:11px;outline:none}.searchbox input:focus{border-color:#9b7aff}.searchbox span{position:absolute;right:12px;top:8px;color:#8893ab}
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.service{position:relative;isolation:isolate;overflow:hidden;min-height:188px;border-radius:17px;border:1px solid var(--stroke);background:linear-gradient(145deg,#131827,#0c101a);padding:18px;transition:transform .3s,border-color .3s,box-shadow .3s;animation:appear .55s both}.service:before{content:"";position:absolute;z-index:-1;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,#9775ff22,transparent 70%);top:-100px;left:-60px;transition:.4s}.service:after{content:"";position:absolute;right:0;top:18px;bottom:18px;width:2px;background:linear-gradient(transparent,#9d82ff,#59d9d2,transparent);opacity:0;transition:.3s}.service:hover{transform:translateY(-5px);border-color:#a38aff65;box-shadow:0 20px 50px #0007,0 0 35px #8163db14}.service:hover:before{transform:scale(1.7)}.service:hover:after{opacity:1}.service-top{display:flex;justify-content:space-between;align-items:flex-start}.service-icon{width:38px;height:38px;border-radius:12px;background:linear-gradient(145deg,#a58bff25,#4cd3d01a);border:1px solid #a58bff24;display:grid;place-items:center;color:#c5b6ff;font-size:17px}.service-tag{font-size:9px;color:#9eabc2;border:1px solid var(--stroke);padding:4px 8px;border-radius:99px}.service h4{font-size:14px;margin:13px 0 4px}.service p{font-size:10px;line-height:1.9;color:#8f9ab1;margin:0;min-height:38px}.service-bottom{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--stroke);padding-top:12px;margin-top:13px}.price{font-size:11px;font-weight:800;color:#d6caff}.price small{display:block;font-size:9px;color:#737e95;font-weight:500}.order{border:1px solid #a58aff55;border-radius:9px;padding:7px 12px;background:#9c7aff17;color:#d8ceff;font-size:10px;font-weight:800;transition:.2s}.order:hover{background:#a58aff;color:#0a0b14}.empty{grid-column:1/-1;border:1px dashed #ffffff20;border-radius:15px;padding:38px;text-align:center;color:#929bb0;font-size:12px}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;padding:0 0 70px}.benefit{border:1px solid var(--stroke);border-radius:15px;padding:18px;background:#ffffff04;display:flex;align-items:center;gap:13px}.benefit-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#c2b3ff;background:#9475ff1c;font-size:16px}.benefit b{display:block;font-size:11px}.benefit span{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+footer{border-top:1px solid var(--stroke);padding:25px 0;color:#7f899f;font-size:10px}.footer{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.footer strong{font-family:'Space Grotesk',sans-serif;color:#d5cbff;letter-spacing:1px}
+.modal-bg{position:fixed;inset:0;background:#03040bdc;backdrop-filter:blur(12px);z-index:60;display:none;align-items:center;justify-content:center;padding:18px}.modal-bg.show{display:flex}.modal{width:min(440px,100%);border:1px solid #a68aff4a;border-radius:20px;background:linear-gradient(145deg,#171c2b,#0c101a);padding:22px;box-shadow:0 30px 100px #000c,0 0 45px #9877ff1a}.modal-head{display:flex;align-items:center;justify-content:space-between}.modal h3{font-size:18px;margin:0}.close{border:1px solid var(--stroke);background:#ffffff08;color:#fff;width:32px;height:32px;border-radius:9px;font-size:18px}.modal-desc{font-size:11px;color:#929bb0;line-height:1.8}.payment-box{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;margin:14px 0 16px;border:1px solid #58d8bd55;border-radius:14px;background:linear-gradient(110deg,#35c9a414,#9b7aff12)}.payment-box small{display:block;color:#8fa2ad;font-size:9px;margin-bottom:4px}.payment-box strong{display:block;color:#8df0d2;font-size:17px;letter-spacing:1px;direction:ltr}.copy-cash{border:1px solid #58d8bd66;border-radius:9px;padding:8px 11px;background:#43d6b51a;color:#a6f5df;font-size:10px;font-weight:800}.field{display:block;margin:12px 0}.field span{display:block;font-size:10px;color:#c2c9d9;margin-bottom:6px}.field input{width:100%;padding:12px;background:#080c15;border:1px solid var(--stroke);border-radius:11px;color:white;outline:none;font-size:12px;transition:.2s}.field input:focus{border-color:#9c7aff;box-shadow:0 0 0 3px #9c7aff18}.send{width:100%;margin-top:8px}.fine{font-size:9px;color:#8c96ac;line-height:1.9}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.hero{grid-template-columns:1fr .8fr;gap:10px}.catalog-shell{grid-template-columns:205px 1fr}.services{grid-template-columns:1fr}.hero-visual{transform:scale(.85)}}
+@media(max-width:680px){.container{width:calc(100% - 26px)}.nav{height:67px}.nav-mid,.status{display:none}.brand{font-size:18px}.brand-icon{width:37px;height:37px}.hero{display:block;padding:52px 0 35px;min-height:0}.hero h1{font-size:48px}.hero-copy p{font-size:12px}.hero-visual{height:245px;margin-top:15px;transform:scale(.78)}.metrics{margin-bottom:48px;padding:15px 0}.metric b{font-size:18px}.metric span{font-size:9px}.section-title h2{font-size:23px}.section-title p{display:none}.catalog-shell{grid-template-columns:1fr;gap:14px}.platform-panel{position:relative;top:auto;padding:12px}.panel-label{padding-bottom:9px}.platform-list{display:flex;overflow-x:auto;gap:7px;padding-bottom:2px;scrollbar-width:none}.platform{width:auto;min-width:max-content;padding:9px 11px}.platform .arrow,.platform small{display:none}.panel-foot{display:none}.catalog-head{align-items:flex-start;flex-wrap:wrap}.searchbox,.searchbox input{width:100%}.searchbox{order:2}.services{grid-template-columns:1fr}.service{min-height:0}.service p{min-height:0}.benefits{grid-template-columns:1fr;padding-bottom:45px}.footer{justify-content:center;text-align:center}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div id="outerLock"><div class="lockBox"><div class="lockIcon">🔐</div><h2>منصة HASSAN GAD محمية</h2><p style="color:#64748B;margin:12px 0 20px">دخل رمز المنصة - الرمز مع مستر حسن فقط<br>01067820554</p><input id="outerInput" type="password" placeholder="اكتب رمز المنصة" style="text-align:center;font-size:20px;letter-spacing:2px"><button class="btn gold" style="width:100%;margin-top:14px;padding:14px;font-weight:900" onclick="checkOuter()">🔓 فتح المنصة</button><p id="outerErr" style="color:#d84b57;display:none;margin-top:12px">❌ الرمز غلط</p><p style="font-size:12px;color:#94A3B8;margin-top:10px"≥  <b></b></p></div></div>
-<div id="innerLock"><div class="lockBox"><div class="lockIcon" style="background:#FEE2E2">🔒</div><h3 id="innerTitle">قسم مقفول</h3><p style="color:#71809b">دخل رمز القسم</p><input id="innerInput" type="password" placeholder="رمز القسم" style="text-align:center;margin-top:10px"><div style="display:flex;gap:10px;margin-top:14px"><button class="btn" style="flex:1;background:#101b35" onclick="checkInner()">فتح</button><button class="btn" style="flex:1;background:#E2E8F0;color:#333" onclick="closeInner()">إلغاء</button></div><p id="innerErr" style="color:#d84b57;display:none;margin-top:10px">رمز غلط - جرب joo222</p></div></div>
-<header><div><div class="logo">HG | HASSAN GAD 🔒</div><h1>English Academy</h1><p>منصة مستر حسن جاد - محمية</p></div><div style="display:flex;gap:8px"><a id="topWhatsapp" class="btn gold" href="https://wa.me/201067820554" target="_blank">واتساب المستر</a><button class="btn red" onclick="lockNow()">🔒 قفل</button></div></header>
-<div class="layout"><aside><button class="navbtn active" data-page="dashboard" onclick="tryOpen('dashboard',this)">🏠 الرئيسية</button><button class="navbtn" data-page="students" onclick="tryOpen('students',this)">👨‍🎓 الطلاب</button><button class="navbtn" data-page="attendance" onclick="tryOpen('attendance',this)">📋 الحضور والغياب</button><button class="navbtn" data-page="grades" onclick="tryOpen('grades',this)">📝 درجات الشيت</button><button class="navbtn locked" data-page="payments" onclick="tryOpen('payments',this)">💳 المدفوعات</button><button class="navbtn locked" data-page="courses" onclick="tryOpen('courses',this)">🎓 الكورسات الأونلاين</button><button class="navbtn locked" data-page="lessons" onclick="tryOpen('lessons',this)">💻 الدروس الأونلاين</button><button class="navbtn locked" data-page="settings" onclick="tryOpen('settings',this)">⚙️ الإعدادات</button></aside>
+<div class="topline"></div>
+<header><div class="container nav">
+ <a class="brand" href="#"><span class="brand-icon">M</span><span>MARO <em>STORE</em></span></a>
+ <nav class="nav-mid"><a href="#home">الرئيسية</a><a href="#catalog">الخدمات</a><a href="#advantages">ليه مارو؟</a></nav>
+ <div class="nav-right"><span class="status"><i></i> متاح لاستقبال الطلبات</span><a class="contact-btn" href="#catalog">اكتشف الخدمات ↗</a></div>
+</div></header>
 <main>
-<section class="page active" id="dashboard"><h2>أهلاً يا مستر حسن 👋</h2><p>المنصة محمية: الخارجي <b></b> و الداخلي <b></b></p><div class="stats"><div class="stat">إجمالي الطلاب<strong id="total">0</strong></div><div class="stat">حضور اليوم<strong id="present">0</strong></div><div class="stat">غياب اليوم<strong id="absent">0</strong></div><div class="stat">مدفوعات الشهر<strong id="paid">0</strong></div></div><div class="panel"><h3>🔐 الأكواد الحالية</h3><p>✅ الخارجي: <b></b> | 🔒 المدفوعات/الكورسات/الدروس/الإعدادات: <b></b></p></div><div class="panel"><h3>مجموعات الأوفلاين</h3><p>📍 قرية العاشر: خامسة ابتدائي، أولى إعدادي، ثانية إعدادي.</p><p>📍 قرية الرضوان: من أولى ابتدائي حتى ثالثة إعدادي.</p></div></section>
-<section class="page" id="students"><h2>إدارة الطلاب</h2><button class="btn gold" onclick="openStudent()">+ إضافة طالب</button><div class="panel"><input id="search" placeholder="ابحث..." oninput="renderStudents()"><div class="tablewrap"><table><thead><tr><th>الاسم</th><th>المرحلة</th><th>المجموعة</th><th>واتساب الأب</th><th>الإجراءات</th></tr></thead><tbody id="studentsBody"></tbody></table></div></div></section>
-<section class="page" id="attendance"><h2>الحضور والغياب</h2><div class="panel"><div class="field"><label>التاريخ</label><input type="date" id="attDate"></div><div class="tablewrap"><table><thead><tr><th>الطالب</th><th>المجموعة</th><th>الحالة</th><th>التسجيل</th></tr></thead><tbody id="attendanceBody"></tbody></table></div></div></section>
-<section class="page" id="grades"><h2>درجات الشيت</h2><div class="panel"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"><div class="field"><label>الطالب</label><select id="gradeStudent"></select></div><div class="field"><label>الدرجة</label><input id="gradeScore" type="number" min="0"></div><div class="field"><label>الدرجة النهائية</label><input id="gradeMax" type="number" value="20" min="1"></div></div><button class="btn gold" onclick="saveGrade()">حفظ الدرجة</button></div><div class="panel tablewrap"><table><thead><tr><th>الطالب</th><th>الدرجة</th><th>النسبة</th><th>التاريخ</th></tr></thead><tbody id="gradesBody"></tbody></table></div></section>
-<section class="page" id="payments"><h2>المدفوعات 🔒</h2><div class="panel"><label>الشهر</label><input type="month" id="payMonth"><div class="tablewrap"><table><thead><tr><th>الطالب</th><th>المجموعة</th><th>الحالة</th><th>تغيير</th></tr></thead><tbody id="paymentsBody"></tbody></table></div></div></section>
-<section class="page" id="courses"><h2>الكورسات الأونلاين 🔒</h2><div class="panel"><h3>📘 ابتدائي - 📗 اعدادي - 📕 ثانوي</h3><p>تأسيس وشرح ومراجعة اللغة الإنجليزية</p></div></section>
-<section class="page" id="lessons"><h2>الدروس الأونلاين 🔒</h2><div class="panel"><h3>احجز درسك مع مستر حسن جاد</h3><p>دروس أونلاين لجميع المراحل.</p><button class="btn gold" onclick="contact('حجز درس أونلاين')">احجز عبر واتساب</button></div></section>
-<section class="page" id="settings"><h2>إعدادات المنصة 🔒</h2><div class="panel"><h3>🔐 تغيير الرموز</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="field"><label>رمز المنصة الخارجي</label><input id="setMaster" value="Hassan2026"></div><div class="field"><label>رمز المدفوعات 💳</label><input id="setPay" value="joo222"></div><div class="field"><label>رمز الكورسات 🎓</label><input id="setCourses" value="joo222"></div><div class="field"><label>رمز الدروس 💻</label><input id="setLessons" value="joo222"></div><div class="field"><label>رمز الإعدادات ⚙️</label><input id="setSettings" value="joo222"></div><div class="field"><label>رقم واتساب المستر</label><input id="teacherPhone" value="201067820554"></div></div><button class="btn gold" style="width:100%;padding:14px;margin-top:12px" onclick="saveCodes()">💾 حفظ كل الأكواد</button></div><div class="panel"><button class="btn" onclick="exportData()">تحميل نسخة احتياطية</button><button class="btn red" onclick="clearData()">مسح جميع البيانات</button></div></section>
-</main></div>
-<footer>© HASSAN GAD ENGLISH ACADEMY -  / </footer>
-<div class="modalback" id="studentModal"><div class="modal" style="background:white;padding:22px;border-radius:15px;width:min(700px,100%)"><h3>إضافة طالب جديد</h3><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"><div class="field"><label>اسم الطالب</label><input id="stName"></div><div class="field"><label>المرحلة</label><select id="stStage"><option>أولى ابتدائي</option><option>ثانية ابتدائي</option><option>ثالثة ابتدائي</option><option>رابعة ابتدائي</option><option>خامسة ابتدائي</option><option>سادسة ابتدائي</option><option>أولى إعدادي</option><option>ثانية إعدادي</option><option>ثالثة إعدادي</option><option>أولى ثانوي</option><option>ثانية ثانوي</option><option>ثالثة ثانوي</option></select></div><div class="field"><label>نوع الدراسة</label><select id="stType"><option>أوفلاين</option><option>أونلاين</option></select></div><div class="field"><label>المجموعة</label><select id="stGroup"><option>قرية العاشر</option><option>قرية الرضوان</option><option>أونلاين</option></select></div><div class="field"><label>رقم واتساب الأب</label><input id="stParent" placeholder="2010XXXXXXXX"></div><div class="field"><label>ملاحظات</label><input id="stNotes"></div></div><button class="btn gold" onclick="saveStudent()">حفظ الطالب</button><button class="btn" onclick="closeStudent()">إغلاق</button></div></div>
+<section class="container hero" id="home">
+ <div class="hero-copy">
+  <div class="overline"><span></span> THE SOCIAL GROWTH EXPERIENCE</div>
+  <h1>حضورك الرقمي<br><span class="shine-text">يستحق الأفضل.</span></h1>
+  <p>كل أدوات الانتشار والتفاعل اللي محتاجها، منظمة في تجربة واحدة. اختار منصتك، اكتشف خدماتها، وابدأ خطوتك الجاية مع MARO STORE.</p>
+  <div class="hero-actions"><button class="btn-main" onclick="document.querySelector('#catalog').scrollIntoView({behavior:'smooth'})">استكشف الخدمات <span>↙</span></button><a class="btn-ghost" href="#advantages">اكتشف التجربة</a></div>
+ </div>
+ <div class="hero-visual" aria-hidden="true">
+  <div class="halo"></div><div class="orb"><strong>M.</strong></div>
+  <div class="float-card fc1"><b><i class="mini-dot"></i> تجربة منظمة</b><small>كل منصة في مكانها</small></div>
+  <div class="float-card fc2"><b>✦ خدمات متنوعة</b><small>اختيارات متعددة لحسابك</small></div>
+  <div class="float-card fc3"><b>MARO / 01</b><small>Social growth studio</small></div>
+ </div>
+</section>
+<section class="container metrics reveal">
+ <div class="metric"><b>07+</b><span>منصات مختلفة</span></div><div class="metric"><b>40+</b><span>خدمة وعرض متنوع</span></div><div class="metric"><b>24/7</b><span>تصفح وطلب الخدمات</span></div>
+</section>
+<section class="container catalog" id="catalog">
+ <div class="section-title reveal"><div><div class="kicker">THE SERVICE CATALOG</div><h2>اختار عالمك.</h2></div><p>منصة واحدة. كل الخدمات اللي بتدور عليها.</p></div>
+ <div class="catalog-shell">
+  <aside class="platform-panel reveal"><div class="panel-label">PLATFORMS / المنصات</div><div class="platform-list" id="platformList"></div><div class="panel-foot">اختار المنصة من القائمة علشان تشوف الخدمات المتاحة ليها.</div></aside>
+  <div class="catalog-main">
+   <div class="catalog-head reveal">
+    <div class="active-info"><div class="active-logo"><img id="activeLogo" src="https://cdn.simpleicons.org/tiktok/ffffff" alt=""></div><div><h3 id="activeName">TikTok</h3><p id="activeCount">الخدمات المتاحة على المنصة</p></div></div>
+    <label class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="دور على الخدمة اللي محتاجها..."></label>
+   </div>
+   <div class="services" id="serviceGrid"></div>
+  </div>
+ </div>
+</section>
+<section class="container benefits" id="advantages">
+ <div class="benefit reveal"><div class="benefit-icon">✧</div><div><b>واجهة سهلة وواضحة</b><span>كل خدمة متقسمة حسب منصتها</span></div></div>
+ <div class="benefit reveal"><div class="benefit-icon">◈</div><div><b>اختيار أسرع</b><span>ابحث وحدد طلبك في خطوات بسيطة</span></div></div>
+ <div class="benefit reveal"><div class="benefit-icon">↗</div><div><b>طلب مباشر</b><span>إرسال تفاصيل طلبك عبر واتساب</span></div></div>
+</section>
+</main>
+<footer><div class="container footer"><span>© 2026 <strong>MARO STORE</strong> — All rights reserved.</span><span>Built for your digital presence.</span></div></footer>
+
+<div class="modal-bg" id="modal">
+ <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-head"><h3 id="modalTitle">تفاصيل الطلب</h3><button class="close" id="close" aria-label="إغلاق">×</button></div>
+  <p class="modal-desc" id="chosenService">كمّل بياناتك وبيانات التحويل، وبعدها اضغط إرسال الطلب.</p>
+  <div class="payment-box">
+   <div><small>رقم الكاش / التحويل — MARO STORE</small><strong id="cashNumber">01030980823</strong></div>
+   <button class="copy-cash" id="copyCash" type="button">نسخ الرقم</button>
+  </div>
+  <label class="field"><span>اسمك</span><input id="clientName" autocomplete="name" placeholder="اكتب اسمك بالكامل"></label>
+  <label class="field"><span>رابط الحساب / المنشور</span><input id="targetLink" placeholder="https://..." dir="ltr"></label>
+  <label class="field"><span>الكمية المطلوبة</span><input id="amount" type="number" min="1" placeholder="مثال: 1000"></label>
+  <label class="field"><span>رقم التحويل / مرجع العملية</span><input id="transferRef" placeholder="اكتب رقم العملية بعد التحويل" dir="ltr"></label>
+  <button class="btn-main send" id="send">إرسال كل التفاصيل على واتساب ↗</button>
+  <p class="fine">حوّل على رقم الكاش الموضّح بالأعلى، واكتب رقم العملية. عند الضغط هتتفتح رسالة واتساب جاهزة بكل بيانات الطلب والتحويل.</p>
+ </div>
+</div>
 <script>
+const WHATSAPP_NUMBER="201030980823"; // رقم واتساب مارو ستور - عدّله عند الحاجة
+const logo=(slug,color)=>`https://cdn.simpleicons.org/${slug}/${color}`;
+const platforms=[
+ {id:"facebook",name:"Facebook",slug:"facebook",color:"1877F2",items:[
+  ["1000 متابع فيسبوك أجانب ثابت","متابعون أجانب ثابتون حسب وصف الخدمة","متابعين","60 جنيه"],
+  ["1000 عضو جروب فيسبوك أجانب","زيادة أعضاء الجروب","أعضاء","50 جنيه"],
+  ["1000 رياكت فيسبوك","تفاعلات على منشورات فيسبوك","ريأكت","50 جنيه"],
+  ["1000 تفاعل قصص فيسبوك","تفاعلات على قصص فيسبوك","تفاعلات","35 جنيه"],
+  ["1000 مشاركة منشور فيسبوك","مشاركات للمنشورات","مشاركات","45 جنيه"],
+  ["1000 مشاهدة ريلز فيسبوك","مشاهدات لمقاطع Reels","مشاهدات","20 جنيه"]
+ ]},
+ {id:"tiktok",name:"TikTok",slug:"tiktok",color:"ffffff",items:[
+  ["1000 متابع تيك توك مصري","متابعون من مصر","متابعين","260 جنيه"],
+  ["1000 متابع تيك توك أجانب","متابعون أجانب","متابعين","125 جنيه"],
+  ["1000 لايك تيك توك مصري ثابت","لايكات مصرية ثابتة بدون نقص حسب وصف الخدمة","لايكات","75 جنيه"],
+  ["1000 لايك تيك توك أجانب","ضمان 90 يوم حسب وصف الخدمة","لايكات","35 جنيه"],
+  ["1000 لايك تيك توك وهمي أجانب","بدون ضمان","لايكات","20 جنيه"],
+  ["1000 مشاهدة تيك توك حقيقي","مشاهدات حقيقية بدون نقص حسب وصف الخدمة","مشاهدات","9 جنيه"],
+  ["1000 مشاهدة تيك توك فيك","بدون ضمان","مشاهدات","3 جنيه"],
+  ["1000 شير تيك توك","مشاركات للفيديوهات","شير","5 جنيه"],
+  ["1000 سيف تيك توك","حفظ للفيديوهات","حفظ","5 جنيه"],
+  ["100 تعليق تيك توك مصري","التعليقات حسب النص الذي يحدده العميل","تعليقات","35 جنيه / 100"],
+  ["1000 نقطة معركة لايف تيك توك","نقاط معارك البث المباشر","لايف","35 جنيه"]
+ ]},
+ {id:"telegram",name:"Telegram",slug:"telegram",color:"26A5E4",items:[
+  ["1000 عضو تليجرام","زيادة أعضاء القناة أو المجموعة","أعضاء","50 جنيه"],
+  ["1000 تفاعل تليجرام","تفاعلات على المنشورات","تفاعلات","15 جنيه"]
+ ]},
+ {id:"instagram",name:"Instagram",slug:"instagram",color:"E4405F",items:[
+  ["1000 متابع إنستا أجانب","ثابت بدون نقص حسب وصف الخدمة","متابعين","80 جنيه"],
+  ["1000 لايك إنستا","لايكات ثابتة حسب وصف الخدمة","لايكات","45 جنيه"],
+  ["1000 ريبوست إنستا","إعادة نشر ثابتة حسب وصف الخدمة","ريبوست","45 جنيه"],
+  ["1000 مشاهدة إنستا","مشاهدات للمحتوى","مشاهدات","8 جنيه"],
+  ["1000 مشاركة إنستا","مشاركات للمحتوى","مشاركات","8 جنيه"],
+  ["1000 حفظ إنستا","حفظ للمنشورات","حفظ","8 جنيه"]
+ ]},
+ {id:"youtube",name:"YouTube",slug:"youtube",color:"FF0033",items:[
+  ["1000 مشترك يوتيوب فيك أجانب","بدون ضمان","مشتركين","25 جنيه"],
+  ["1000 لايك يوتيوب","ضمان مدى الحياة حسب وصف الخدمة","لايكات","55 جنيه"],
+  ["1000 مشاهدة يوتيوب إعلانات ممولة","ضمان مدى الحياة حسب وصف الخدمة","مشاهدات","35 جنيه"]
+ ]},
+ {id:"kwai",name:"Kwai",slug:"kwai",color:"FF6A00",items:[
+  ["1000 متابع كواي","زيادة متابعين الحساب","متابعين","80 جنيه"],
+  ["1000 لايك كواي","إعجابات على المحتوى","لايكات","35 جنيه"],
+  ["1000 مشاهدة كواي","مشاهدات للمحتوى","مشاهدات","25 جنيه"]
+ ]},
+ {id:"x",name:"X / Twitter",slug:"x",color:"ffffff",items:[
+  ["1000 متابع تويتر","زيادة متابعين الحساب","متابعين","80 جنيه"],
+  ["1000 مشاهدة تويتر","مشاهدات للمحتوى","مشاهدات","12 جنيه"],
+  ["1000 ريبوست تويتر","إعادة نشر للمحتوى","ريبوست","55 جنيه"]
+ ]},
+ {id:"whatsapp",name:"WhatsApp",slug:"whatsapp",color:"25D366",items:[
+  ["1000 عضو قناة واتساب","بدون ضمان","أعضاء","45 جنيه"],
+  ["ردود فعل واتساب","تفاعلات على محتوى القناة","تفاعلات","15 جنيه"],
+  ["1000 تصويت قناة واتساب","تصويتات القناة","تصويت","80 جنيه"]
+ ]},
+ {id:"digital",name:"اشتراكات رقمية",slug:"openai",color:"ffffff",items:[
+  ["اشتراك ChatGPT","اشتراك شهري","اشتراكات","250 جنيه / شهريًا"],
+  ["اشتراك CapCut","مدة الاشتراك 7 أيام","اشتراكات","80 جنيه / 7 أيام"],
+  ["اشتراك Canva","مدة الاشتراك 3 سنوات حسب العرض","اشتراكات","55 جنيه / 3 سنين"]
+ ]},
+ {id:"games",name:"شحن الألعاب",slug:"googleplay",color:"9BE15D",items:[
+  ["شحن Free Fire","حدد الباقة المطلوبة عند إرسال الطلب","شحن ألعاب","السعر حسب الباقة"],
+  ["شحن PUBG Mobile","حدد الباقة المطلوبة عند إرسال الطلب","شحن ألعاب","السعر حسب الباقة"]
+ ]}
+]
+let activeId="tiktok",selected=null;
 const $=id=>document.getElementById(id);
-const get=(k,d)=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d));
-let students=get('hg_students',[]),attendance=get('hg_attendance',{}),grades=get('hg_grades',[]),payments=get('hg_payments',{}),settings=get('hg_settings',{phone:'201067820554'});
-let codes=get('hg_codes_final',{master:'Hassan2026',pay:'joo222',courses:'joo222',lessons:'joo222',settings:'joo222'});
-let unlocked=new Set(JSON.parse(localStorage.getItem('hg_unlocked_final')||'[]')),pending=null;
-const today=()=>new Date().toISOString().slice(0,10),month=()=>today().slice(0,7);
-$('attDate').value=today();$('payMonth').value=month();
-function save(){localStorage.setItem('hg_students',JSON.stringify(students));localStorage.setItem('hg_attendance',JSON.stringify(attendance));localStorage.setItem('hg_grades',JSON.stringify(grades));localStorage.setItem('hg_payments',JSON.stringify(payments));localStorage.setItem('hg_codes_final',JSON.stringify(codes));}
-function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function checkOuter(){if($('outerInput').value.trim()===codes.master){$('outerLock').style.display='none';localStorage.setItem('hg_master_ok_final','1');}else{$('outerErr').style.display='block';}}
-function lockNow(){localStorage.removeItem('hg_master_ok_final');localStorage.setItem('hg_unlocked_final','[]');location.reload();}
-function tryOpen(id,btn){const locked={payments:'pay',courses:'courses',lessons:'lessons',settings:'settings'};if(locked[id] && !unlocked.has(id)){pending={id,btn};$('innerTitle').innerText=btn.innerText+' - مقفول 🔒';$('innerInput').value='';$('innerErr').style.display='none';$('innerLock').style.display='grid';return;}showPage(id,btn);}
-function checkInner(){let v=$('innerInput').value.trim();let map={payments:'pay',courses:'courses',lessons:'lessons',settings:'settings'};let key=map[pending.id];if(v===codes[key]){unlocked.add(pending.id);localStorage.setItem('hg_unlocked_final',JSON.stringify([...unlocked]));closeInner();showPage(pending.id,pending.btn);}else{$('innerErr').style.display='block';}}
-function closeInner(){$('innerLock').style.display='none';}
-function showPage(id,button){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));$(id).classList.add('active');if(button)button.classList.add('active');refresh();}
-function refresh(){renderStudents();renderAttendance();renderGrades();renderPayments();renderDashboard();fillSelect();}
-function renderDashboard(){let d=today();$('total').textContent=students.length;$('present').textContent=students.filter(s=>attendance[d+'_'+s.id]==='حاضر').length;$('absent').textContent=students.filter(s=>attendance[d+'_'+s.id]==='غائب').length;$('paid').textContent=students.filter(s=>payments[month()+'_'+s.id]).length;}
-function openStudent(){$('studentModal').style.display='grid';}
-function closeStudent(){$('studentModal').style.display='none';}
-function saveStudent(){let name=$('stName').value.trim();let parent=$('stParent').value.replace(/\D/g,'');if(!name||!parent){alert('اكتب اسم الطالب ورقم ولي الأمر');return;}students.push({id:Date.now().toString(),name,stage:$('stStage').value,type:$('stType').value,group:$('stGroup').value,parent,notes:$('stNotes').value});save();closeStudent();['stName','stParent','stNotes'].forEach(id=>$(id).value='');refresh();}
-function renderStudents(){let q=$('search')?.value?.toLowerCase()||'';let arr=students.filter(s=>s.name.toLowerCase().includes(q));$('studentsBody').innerHTML=arr.map(s=>`<tr><td>${esc(s.name)}</td><td>${esc(s.stage)}</td><td>${esc(s.group)}</td><td>${esc(s.parent)}</td><td><button class="btn green" onclick="parentWhatsApp('${s.id}')">واتساب</button><button class="btn red" onclick="deleteStudent('${s.id}')">حذف</button></td></tr>`).join('')||'<tr><td colspan="5">لا يوجد طلاب</td></tr>';}
-function deleteStudent(id){if(confirm('حذف الطالب؟')){students=students.filter(s=>s.id!==id);save();refresh();}}
-function renderAttendance(){let date=$('attDate').value||today();$('attendanceBody').innerHTML=students.map(s=>{let status=attendance[date+'_'+s.id]||'لم يسجل';return `<tr><td>${esc(s.name)}</td><td>${esc(s.group)}</td><td>${status}</td><td><button class="btn green" onclick="setAttendance('${s.id}','حاضر')">حاضر</button><button class="btn red" onclick="setAttendance('${s.id}','غائب')">غائب</button></td></tr>`;}).join('')||'<tr><td colspan="4">لا يوجد طلاب</td></tr>';}
-function setAttendance(id,status){attendance[($('attDate').value||today())+'_'+id]=status;save();refresh();}
-function fillSelect(){$('gradeStudent').innerHTML=students.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('');}
-function saveGrade(){let id=$('gradeStudent').value;let score=Number($('gradeScore').value);let max=Number($('gradeMax').value);if(!id||$('gradeScore').value===''||max<=0||score<0||score>max){alert('راجع بيانات الدرجة');return;}grades.unshift({id,score,max,date:today()});save();$('gradeScore').value='';refresh();}
-function renderGrades(){$('gradesBody').innerHTML=grades.map(g=>{let s=students.find(x=>x.id===g.id);return `<tr><td>${esc(s?.name||'محذوف')}</td><td>${g.score}/${g.max}</td><td>${Math.round(g.score/g.max*100)}%</td><td>${g.date}</td></tr>`;}).join('')||'<tr><td colspan="4">لا توجد درجات</td></tr>';}
-function renderPayments(){let m=$('payMonth').value||month();$('paymentsBody').innerHTML=students.map(s=>{let paid=!!payments[m+'_'+s.id];return `<tr><td>${esc(s.name)}</td><td>${esc(s.group)}</td><td>${paid?'مدفوع':'لم يدفع'}</td><td><button class="btn ${paid?'red':'green'}" onclick="togglePayment('${s.id}')">${paid?'إلغاء الدفع':'تسجيل الدفع'}</button></td></tr>`;}).join('')||'<tr><td colspan="4">لا يوجد طلاب</td></tr>';}
-function togglePayment(id){let key=($('payMonth').value||month())+'_'+id;payments[key]=!payments[key];save();refresh();}
-function whatsapp(phone,msg){window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(msg),'_blank');}
-function parentWhatsApp(id){let s=students.find(x=>x.id===id);if(!s)return;let absences=Object.entries(attendance).filter(([k,v])=>k.endsWith('_'+id)&&v==='غائب');let last=grades.find(g=>g.id===id);let paid=!!payments[month()+'_'+id];let msg=`السلام عليكم ولي أمر الطالب ${s.name}\nتقرير المتابعة من مستر حسن جاد:\nالمرحلة: ${s.stage}\nالمجموعة: ${s.group}\nعدد مرات الغياب: ${absences.length}\nآخر درجة شيت: ${last?last.score+' من '+last.max:'لا توجد'}\nاشتراك الشهر: ${paid?'مدفوع':'غير مدفوع'}`;whatsapp(s.parent,msg);}
-function contact(course){whatsapp(settings.phone,'السلام عليكم يا مستر حسن، أريد الاستفسار عن '+course);}
-function updateWhatsapp(){$('topWhatsapp').href='https://wa.me/'+settings.phone;}
-function exportData(){let data={students,attendance,grades,payments,settings,codes};let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='hassan-gad-backup.json';a.click();}
-function clearData(){if(confirm('هل تريد حذف جميع البيانات؟')){students=[];attendance={};grades=[];payments={};save();refresh();}}
-function saveCodes(){codes.master=$('setMaster').value.trim()||codes.master;codes.pay=$('setPay').value.trim()||codes.pay;codes.courses=$('setCourses').value.trim()||codes.courses;codes.lessons=$('setLessons').value.trim()||codes.lessons;codes.settings=$('setSettings').value.trim()||codes.settings;let p=$('teacherPhone').value.replace(/\D/g,'');if(p.length>=10){settings.phone=p;localStorage.setItem('hg_settings',JSON.stringify(settings));}save();updateWhatsapp();alert('تم حفظ كل الأكواد ✅\nالخارجي: '+codes.master+'\nالداخلي: '+codes.pay);}
-$('attDate').addEventListener('change',renderAttendance);$('payMonth').addEventListener('change',renderPayments);
-$('teacherPhone').value=settings.phone;
-updateWhatsapp();refresh();
-if(localStorage.getItem('hg_master_ok_final')==='1'){$('outerLock').style.display='none';}
+function renderPlatforms(){
+ $("platformList").innerHTML=platforms.map(p=>`<button class="platform ${p.id===activeId?"active":""}" data-id="${p.id}"><img src="${logo(p.slug,p.color)}" alt=""><span>${p.name}</span><small>${p.items.length}</small><b class="arrow">‹</b></button>`).join("");
+ document.querySelectorAll(".platform").forEach(b=>b.addEventListener("click",()=>{activeId=b.dataset.id;$("search").value="";renderPlatforms();renderServices();}));
+}
+const symbols=["↗","✧","◉","⌁","♡","✦"];
+function renderServices(){
+ const p=platforms.find(x=>x.id===activeId),term=$("search").value.trim().toLowerCase();
+ $("activeLogo").src=logo(p.slug,p.color);$("activeName").textContent=p.name;$("activeCount").textContent=`${p.items.length} خدمات متاحة — اختار الخدمة المناسبة`;
+ const list=p.items.filter(s=>(s.join(" ")).toLowerCase().includes(term));
+ $("serviceGrid").innerHTML=list.length?list.map((s,i)=>`<article class="service" style="animation-delay:${i*55}ms"><div class="service-top"><div class="service-icon">${symbols[i%symbols.length]}</div><span class="service-tag">${s[2]}</span></div><h4>${s[0]}</h4><p>${s[1]}. اختار الخدمة وأرسل تفاصيل طلبك بسهولة.</p><div class="service-bottom"><div class="price">${s[3]||"يُحدد لاحقًا"}<small>السعر للخدمة الموضحة</small></div><button class="order" data-index="${i}">اطلب الخدمة ↗</button></div></article>`).join(""):`<div class="empty">مش لاقيين خدمة بالاسم ده — جرّب كلمة تانية.</div>`;
+ $("serviceGrid").querySelectorAll(".order").forEach(b=>b.addEventListener("click",()=>{selected={platform:p.name,service:list[+b.dataset.index][0]};$("chosenService").textContent=`${selected.platform} / ${selected.service}`;$("modal").classList.add("show")}));
+}
+$("search").addEventListener("input",renderServices);
+function closeModal(){$("modal").classList.remove("show")}
+$("close").addEventListener("click",closeModal);$("modal").addEventListener("click",e=>{if(e.target===$("modal"))closeModal()});
+$("copyCash").addEventListener("click",async()=>{try{await navigator.clipboard.writeText("01030980823");$("copyCash").textContent="تم النسخ ✓";setTimeout(()=>$("copyCash").textContent="نسخ الرقم",1600)}catch(e){alert("رقم الكاش: 01030980823")}});
+$("send").addEventListener("click",()=>{if(!selected)return;let name=$("clientName").value.trim(),link=$("targetLink").value.trim(),qty=$("amount").value.trim(),ref=$("transferRef").value.trim();if(!name||!link||!qty||!ref){alert("من فضلك اكتب اسمك والرابط والكمية ورقم التحويل.");return}let msg=`طلب جديد من MARO STORE\\nالاسم: ${name}\\nالمنصة: ${selected.platform}\\nالخدمة: ${selected.service}\\nالرابط: ${link}\\nالكمية: ${qty}\\nرقم التحويل / مرجع العملية: ${ref}\\nرقم الكاش للتحويل: 01030980823`;window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,"_blank")});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+renderPlatforms();renderServices();
 </script>
-</body>
-</html>
+</body></html>
